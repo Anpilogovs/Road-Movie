@@ -8,9 +8,9 @@
 import UIKit
 import SDWebImage
 
-class CollectionCollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "CollectionCollectionViewCell"
+    static let identifier = "CollectionViewCell"
     @IBOutlet weak var movieImage: UIImageView!
     
     override func awakeFromNib() {
@@ -20,7 +20,7 @@ class CollectionCollectionViewCell: UICollectionViewCell {
     
     
     func setUpImage(model: String) {
-        guard let url = URL(string: "https/image.tmdb.org/t/p/w500/\(model)") else { return }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
         
         movieImage.sd_setImage(with: url)
     }

@@ -11,8 +11,7 @@ class CollectionTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionTableViewCell"
     
-    var movies: [Movie] = [Movie]()
-    
+   private var movies: [Movie] = [Movie]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -22,16 +21,17 @@ class CollectionTableViewCell: UITableViewCell {
         
         
         
-        collectionView.register(UINib(nibName: "CollectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
-        
     }
     
     
     func configure(movie: [Movie]) {
         self.movies = movie
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            [weak self] in self?.collectionView.reloadData()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,11 +51,18 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCollectionViewCell.identifier, for: indexPath) as? CollectionCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
         
         guard let posterPath = movies[indexPath.row].poster_path else  { return  UICollectionViewCell() }
-      
+        
         cell.setUpImage(model: posterPath)
         return cell
+    }
+}
+
+extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 140, height: 200)
     }
 }

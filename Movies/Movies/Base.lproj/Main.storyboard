@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="-42.028985507246382" y="-27.455357142857142"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Movie-->
         <scene sceneID="Cwb-16-wb7">
             <objects>
                 <viewController id="lFf-2v-uZM" customClass="HomeViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,7 +122,7 @@
                             <constraint firstItem="hxQ-6M-vPn" firstAttribute="top" secondItem="GCM-bj-D8Q" secondAttribute="bottom" id="rXO-xJ-fmU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" image="film" catalog="system" id="qdE-VV-E4s"/>
+                    <tabBarItem key="tabBarItem" title="Movie" image="film" catalog="system" id="qdE-VV-E4s"/>
                     <connections>
                         <outlet property="tableView" destination="hxQ-6M-vPn" id="RJx-OY-CH1"/>
                     </connections>

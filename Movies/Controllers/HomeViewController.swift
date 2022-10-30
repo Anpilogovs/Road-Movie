@@ -9,17 +9,15 @@ import UIKit
 
 enum CategoryMovie: Int  {
     case Popular = 0
-    case NowPlaying = 1
-    case UpComing = 2
-    case TopRated = 3
+    case UpComing = 1
+    case TopRated = 2
     
 }
 
 class HomeViewController: UIViewController {
     
-    let sectionName: [String] = ["Popular", "NowPlaying", "UpComing", "TopRated"]
+    let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
     
-
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,10 +25,6 @@ class HomeViewController: UIViewController {
         
         setUpTable()
     }
-
-    
-    
-    
     
     private func setUpTable() {
         tableView.dataSource = self
@@ -38,12 +32,8 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionTableViewCell.identifier)
     }
-
+    
 }
-
-
-
-
 
 extension HomeViewController: UITableViewDelegate {
     
@@ -76,14 +66,38 @@ extension HomeViewController: UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
+     
+        case CategoryMovie.UpComing.rawValue:
+            NetworkRequest.shared.getUpComingMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(movie: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case CategoryMovie.TopRated.rawValue:
+            NetworkRequest.shared.getTopRatedMovies { result in
+                switch result {
+                case .success(let titles):
+                    cell.configure(movie: titles)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
             
-            
-           
-        
         default:
             return UITableViewCell()
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 }
