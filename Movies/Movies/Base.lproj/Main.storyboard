@@ -47,10 +47,47 @@
                     <view key="view" contentMode="scaleToFill" id="IyZ-zY-Edh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="search movie and tv " showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tw1-4P-NNw">
+                                <rect key="frame" x="0.0" y="90" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Movie</string>
+                                    <string>TV</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hih-k1-eaQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Search" largeTitleDisplayMode="always" id="9fJ-Po-mc1"/>
+                                </items>
+                                <navigationBarAppearance key="standardAppearance"/>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-0b-KSY">
+                                <rect key="frame" x="0.0" y="146" width="414" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rOa-rZ-ZF7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tw1-4P-NNw" firstAttribute="leading" secondItem="rOa-rZ-ZF7" secondAttribute="leading" id="4Va-Ti-LYI"/>
+                            <constraint firstItem="rOa-rZ-ZF7" firstAttribute="trailing" secondItem="Tw1-4P-NNw" secondAttribute="trailing" id="6r9-X3-Kqr"/>
+                            <constraint firstItem="QWs-0b-KSY" firstAttribute="leading" secondItem="rOa-rZ-ZF7" secondAttribute="leading" id="D6G-no-zkN"/>
+                            <constraint firstItem="Tw1-4P-NNw" firstAttribute="top" secondItem="hih-k1-eaQ" secondAttribute="bottom" constant="2" id="DuE-DI-tsX"/>
+                            <constraint firstItem="rOa-rZ-ZF7" firstAttribute="trailing" secondItem="hih-k1-eaQ" secondAttribute="trailing" id="NLi-7Y-QKI"/>
+                            <constraint firstItem="QWs-0b-KSY" firstAttribute="top" secondItem="Tw1-4P-NNw" secondAttribute="bottom" constant="5" id="aBW-P5-jo9"/>
+                            <constraint firstItem="hih-k1-eaQ" firstAttribute="leading" secondItem="rOa-rZ-ZF7" secondAttribute="leading" id="nHA-sw-ouI"/>
+                            <constraint firstItem="rOa-rZ-ZF7" firstAttribute="bottom" secondItem="QWs-0b-KSY" secondAttribute="bottom" id="o20-Ze-x09"/>
+                            <constraint firstItem="rOa-rZ-ZF7" firstAttribute="trailing" secondItem="QWs-0b-KSY" secondAttribute="trailing" id="rG6-pG-A9A"/>
+                            <constraint firstItem="hih-k1-eaQ" firstAttribute="top" secondItem="rOa-rZ-ZF7" secondAttribute="top" id="sGG-EZ-Swu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Eqa-dA-8Vr"/>
+                    <connections>
+                        <outlet property="searViewController" destination="Tw1-4P-NNw" id="OZz-LW-b4Y"/>
+                        <outlet property="tableView" destination="QWs-0b-KSY" id="z36-Fa-6wK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhD-gR-5WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

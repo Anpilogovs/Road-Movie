@@ -75,4 +75,25 @@ class NetworkRequest {
         }
         task.resume()
     }
+
+//https://api.themoviedb.org/3/discover/movie?api_key=08e8119e4bf4b11a0e579aaaad7bd3ce&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate
+    func getMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.url)/3/discover/movie?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
+            guard let data = data , error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
+        
+                completion(.success(results.results))
+                print(results)
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
 }
+
