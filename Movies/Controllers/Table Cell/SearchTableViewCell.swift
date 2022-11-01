@@ -30,10 +30,6 @@ class SearchTableViewCell: UITableViewCell {
 
     }
     
-    
-    
-    
-    
     func configure(model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
         

@@ -15,7 +15,6 @@ struct MoviesResponse: Codable {
     
 }
 
-
 struct Movie: Codable {
     
     let id: Int

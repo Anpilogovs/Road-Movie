@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionTableViewCell.identifier)
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate {

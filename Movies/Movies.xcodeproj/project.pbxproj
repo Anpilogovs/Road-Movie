@@ -12,6 +12,7 @@
 		F3A511A0290ED1D4003D3307 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */; };
 		F3A511A1290ED1D4003D3307 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */; };
 		F3A511A3290EE7D7003D3307 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A511A2290EE7D7003D3307 /* TitleViewModel.swift */; };
+		F3A511A5290FFB3D003D3307 /* ResultSearcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A511A4290FFB3D003D3307 /* ResultSearcViewController.swift */; };
 		F3BEF2332909A63F00BFB525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEF2322909A63F00BFB525 /* AppDelegate.swift */; };
 		F3BEF2352909A63F00BFB525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEF2342909A63F00BFB525 /* SceneDelegate.swift */; };
 		F3BEF2372909A63F00BFB525 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEF2362909A63F00BFB525 /* HomeViewController.swift */; };
@@ -34,6 +35,7 @@
 		F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		F3A511A2290EE7D7003D3307 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		F3A511A4290FFB3D003D3307 /* ResultSearcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearcViewController.swift; sourceTree = "<group>"; };
 		F3BEF22F2909A63F00BFB525 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEF2322909A63F00BFB525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BEF2342909A63F00BFB525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				F3BEF24D2909A7CC00BFB525 /* Table Cell */,
 				F3BEF2362909A63F00BFB525 /* HomeViewController.swift */,
 				F3BEF2462909A74500BFB525 /* SearchViewController.swift */,
+				F3A511A4290FFB3D003D3307 /* ResultSearcViewController.swift */,
 				F3BEF2482909A75700BFB525 /* FavoriteViewController.swift */,
 			);
 			path = Controllers;
@@ -234,6 +237,7 @@
 			files = (
 				F3BEF2372909A63F00BFB525 /* HomeViewController.swift in Sources */,
 				F3BEF2332909A63F00BFB525 /* AppDelegate.swift in Sources */,
+				F3A511A5290FFB3D003D3307 /* ResultSearcViewController.swift in Sources */,
 				F3BEF2472909A74500BFB525 /* SearchViewController.swift in Sources */,
 				F3BEF2542909AEB600BFB525 /* CollectionTableViewCell.swift in Sources */,
 				F3BEF2352909A63F00BFB525 /* SceneDelegate.swift in Sources */,
