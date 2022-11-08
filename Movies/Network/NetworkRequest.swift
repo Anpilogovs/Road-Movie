@@ -11,9 +11,10 @@ import Foundation
 struct Constants {
     static let apiKey = "08e8119e4bf4b11a0e579aaaad7bd3ce"
     static let url = "https://api.themoviedb.org"
+    static let youTubeApi_Key = "AIzaSyBPYMxb71Rc4hSfkk9j5pboQtX85B6tw94"
+    static let youTubeUrl = "https://youtube.googleapis.com/youtube/v3/search?"
 }
 
-///3/now_playing/tv/day?api_key=
 class NetworkRequest {
     
     static let shared = NetworkRequest()
@@ -116,8 +117,10 @@ class NetworkRequest {
     }
 
     
-    func search(query: String, completion: @escaping (Result<[Movie], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.url)3/search/multi?api_key=\(Constants.apiKey)page=1&include_adult=\(query)")  else { return }
+    func searchMovies(query: String, completion: @escaping (Result<[Movie], Error>) -> Void) {
+        
+     guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(Constants.url)/3/search/movie?api_key=\(Constants.apiKey)&query=\(query)")  else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
             guard let data = data , error == nil else {
                 return
@@ -130,6 +133,28 @@ class NetworkRequest {
                 print(results)
             } catch {
                 completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
+        
+     guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constants.youTubeUrl)q=\(query)&key=\(Constants.youTubeApi_Key)")  else { return }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
+            guard let data = data , error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(VideoSearchResponse.self, from: data)
+                completion(.success(results.items[0]))
+            } catch {
+                completion(.failure(error))
+                print(error.localizedDescription)
             }
         }
         task.resume()

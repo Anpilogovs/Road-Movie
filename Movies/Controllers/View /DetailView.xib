@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Movies" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="579" height="750"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
+                    <rect key="frame" x="20" y="94" width="539" height="277"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="277" id="pOn-1l-tTC"/>
+                    </constraints>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="xtJ-u9-jEl">
+                    <rect key="frame" x="20" y="381" width="539" height="315"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-YR-7de">
+                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="196"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOX-1z-GLZ">
+                            <rect key="frame" x="0.0" y="235" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjk-dq-bbn">
+                            <rect key="frame" x="0.0" y="294.5" width="41.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="cuw-WD-UBG"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="xtJ-u9-jEl" firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" id="2Qq-sh-br8"/>
+                <constraint firstItem="xtJ-u9-jEl" firstAttribute="top" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="10" id="J34-Xn-1vA"/>
+                <constraint firstItem="cuw-WD-UBG" firstAttribute="bottom" secondItem="xtJ-u9-jEl" secondAttribute="bottom" constant="20" id="Kn7-HD-98R"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="cuw-WD-UBG" secondAttribute="top" constant="50" id="Vib-JW-T2g"/>
+                <constraint firstItem="cuw-WD-UBG" firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" constant="20" id="f7T-8L-Oob"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="cuw-WD-UBG" secondAttribute="leading" constant="20" id="oGH-bC-vDt"/>
+                <constraint firstItem="xtJ-u9-jEl" firstAttribute="leading" secondItem="EDt-gm-D4G" secondAttribute="leading" id="qL8-AO-nF8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="overviewLabel" destination="pjk-dq-bbn" id="UtC-Iw-4ER"/>
+                <outlet property="ratingLabel" destination="QOX-1z-GLZ" id="fc6-kB-zBg"/>
+                <outlet property="titleMovieLabel" destination="pYX-YR-7de" id="1AZ-0V-sMx"/>
+                <outlet property="webView" destination="EDt-gm-D4G" id="lQd-cw-aZS"/>
+            </connections>
+            <point key="canvasLocation" x="110.86956521739131" y="348.88392857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -35,6 +35,5 @@ class SearchTableViewCell: UITableViewCell {
         
         posterImage.sd_setImage(with: url)
         nameLabel.text = model.nameMovie
-        
     }
 }

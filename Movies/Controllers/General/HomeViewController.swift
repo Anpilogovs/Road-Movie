@@ -16,21 +16,21 @@ enum CategoryMovie: Int  {
 
 class HomeViewController: UIViewController {
     
-    let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
+   private let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         setUpTable()
     }
     
     private func setUpTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionTableViewCell.identifier)
+        
     }
 }
 
@@ -54,6 +54,9 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else { return UITableViewCell() }
+        
+        
+        cell.delegate = self
         
         switch indexPath.section  {
         case CategoryMovie.Popular.rawValue:
@@ -100,3 +103,15 @@ extension HomeViewController: UITableViewDataSource {
         return 40
     }
 }
+extension HomeViewController: CollectionTableViewCellDelegate {
+    func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
+
+        DispatchQueue.main.async { [weak self] in
+            guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+            controller.customView.configure(model: viewModel)
+            controller.modalPresentationStyle = .fullScreen
+            self?.present(controller, animated: true)
+        }
+    }
+}
+

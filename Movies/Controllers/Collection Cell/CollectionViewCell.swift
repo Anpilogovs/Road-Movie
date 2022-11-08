@@ -19,7 +19,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setUpImage(model: String) {
+    func configure(model: String) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
         
         movieImage.sd_setImage(with: url)

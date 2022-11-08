@@ -9,7 +9,6 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-   
     private var searchController = UISearchController()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
@@ -20,19 +19,16 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setUpSearch()
         setUpTable()
-//        fetchMovie()
-        
+        fetchMovie()
     }
-
-    
+    //
     private func setUpSearch() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         searchContainerView.addSubview(searchController.searchBar)
     }
-    
+
     private func setUpTable() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -43,17 +39,7 @@ class SearchViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            NetworkRequest.shared.getMovies { result in
-                switch result {
-                case .success(let titles):
-                    self.movies = titles
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+            fetchMovie()
         case 1:
             NetworkRequest.shared.getTvShow { result in
                 switch result {
@@ -71,24 +57,21 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
-//    private func fetchMovie() {
+    private func fetchMovie() {
         
-  
-        
-//        NetworkRequest.shared.getMovies { result in
-//            switch result {
-//            case .success(let titles):
-//                self.movies = titles
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
+        NetworkRequest.shared.getMovies { result in
+            switch result {
+            case .success(let titles):
+                self.movies = titles
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-//}
+}
 
 
 extension SearchViewController: UITableViewDelegate {
@@ -112,6 +95,11 @@ extension SearchViewController: UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+     
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating {
@@ -119,13 +107,17 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         let searchBar = searchController.searchBar
-        guard  let query = searchBar.text else { return }
+        guard  let query = searchBar.text,
+               !query.trimmingCharacters(in: .whitespaces).isEmpty,
+               query.trimmingCharacters(in: .whitespaces).count >= 2 else { return  fetchMovie() }
         
-        NetworkRequest.shared.search(query: query) { result in
+        NetworkRequest.shared.searchMovies(query: query) { result in
             switch result {
             case .success(let title):
                 self.movies = title
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -133,6 +125,4 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
 
-}

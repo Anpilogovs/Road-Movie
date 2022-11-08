@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol CollectionTableViewCellDelegate: AnyObject {
+    func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel)
+}
+
+
 class CollectionTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionTableViewCell"
+    
+    weak var delegate: CollectionTableViewCellDelegate?
     
    private var movies: [Movie] = [Movie]()
     
@@ -29,20 +36,14 @@ class CollectionTableViewCell: UITableViewCell {
     
     func configure(movie: [Movie]) {
         self.movies = movie
-        DispatchQueue.main.async {
-            [weak self] in self?.collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
         }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
-}
-
-extension CollectionTableViewCell: UICollectionViewDelegate {
-    
 }
 
 extension CollectionTableViewCell: UICollectionViewDataSource  {
@@ -55,14 +56,38 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
         
         guard let posterPath = movies[indexPath.row].poster_path else  { return  UICollectionViewCell() }
         
-        cell.setUpImage(model: posterPath)
+        cell.configure(model: posterPath)
         return cell
     }
 }
 
-extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
+
+extension CollectionTableViewCell: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 200)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+
+        let titleName = movies[indexPath.row]
+        guard let title = titleName.original_name ?? titleName.original_title else { return }
+    
+        NetworkRequest.shared.getMovie(query: title + " trailer") { [weak self] result in
+            switch result {
+            case .success(let videoElement):
+                print(videoElement)
+
+                let movies = self?.movies[indexPath.row]
+                guard let titleOverview = movies?.overview, let rating = movies?.vote_count else { return }
+                
+                let detailModel = DetailViewModel(title: "Name Movie: \(title)", videoView:  videoElement, titleOverview: "Overview: \(titleOverview)", rating: "Rating: \(rating)")
+            
+                guard let selfStrong = self else { return }
+                self?.delegate?.collectionTableViewDidTapCell(selfStrong, viewModel: detailModel)
+        
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

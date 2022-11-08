@@ -8,7 +8,6 @@
 import Foundation
 
 
-//создали модель  которая принимает всю информацию которую мы передадит на контроллер
 struct MoviesResponse: Codable {
     
     let results: [Movie]
