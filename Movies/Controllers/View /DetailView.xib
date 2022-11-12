@@ -8,67 +8,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Movies" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="579" height="750"/>
+        <view contentMode="scaleAspectFit" ambiguous="YES" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="463"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
-                    <rect key="frame" x="20" y="94" width="539" height="277"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <wkWebView contentMode="scaleToFill" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
+                    <rect key="frame" x="20" y="50" width="368" height="200"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="277" id="pOn-1l-tTC"/>
+                        <constraint firstAttribute="height" constant="200" id="pFd-Hj-b9D"/>
                     </constraints>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="xtJ-u9-jEl">
-                    <rect key="frame" x="20" y="381" width="539" height="315"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-YR-7de">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="196"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOX-1z-GLZ">
-                            <rect key="frame" x="0.0" y="235" width="41.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjk-dq-bbn">
-                            <rect key="frame" x="0.0" y="294.5" width="41.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-TS-018">
+                    <rect key="frame" x="20" y="270" width="368" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPr-iK-uso">
+                    <rect key="frame" x="20" y="320" width="368" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="cuw-WD-UBG"/>
+            <viewLayoutGuide key="safeArea" id="Pb4-Qi-dcy"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xtJ-u9-jEl" firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" id="2Qq-sh-br8"/>
-                <constraint firstItem="xtJ-u9-jEl" firstAttribute="top" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="10" id="J34-Xn-1vA"/>
-                <constraint firstItem="cuw-WD-UBG" firstAttribute="bottom" secondItem="xtJ-u9-jEl" secondAttribute="bottom" constant="20" id="Kn7-HD-98R"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="cuw-WD-UBG" secondAttribute="top" constant="50" id="Vib-JW-T2g"/>
-                <constraint firstItem="cuw-WD-UBG" firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" constant="20" id="f7T-8L-Oob"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="cuw-WD-UBG" secondAttribute="leading" constant="20" id="oGH-bC-vDt"/>
-                <constraint firstItem="xtJ-u9-jEl" firstAttribute="leading" secondItem="EDt-gm-D4G" secondAttribute="leading" id="qL8-AO-nF8"/>
+                <constraint firstItem="4pe-TS-018" firstAttribute="top" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="20" id="2cP-JX-49h"/>
+                <constraint firstItem="OPr-iK-uso" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Dre-Uz-AZI"/>
+                <constraint firstAttribute="trailing" secondItem="4pe-TS-018" secondAttribute="trailing" constant="20" id="KFR-My-Rhy"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="wdE-P8-Npw" secondAttribute="top" constant="50" id="NqG-mo-dDS"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Tha-jO-Xyd"/>
+                <constraint firstItem="4pe-TS-018" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="hE4-JV-GEJ"/>
+                <constraint firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" constant="20" id="koN-3n-pFX"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="centerY" secondItem="wdE-P8-Npw" secondAttribute="centerY" id="nMW-La-wmv"/>
+                <constraint firstAttribute="trailing" secondItem="OPr-iK-uso" secondAttribute="trailing" constant="20" id="tDS-Fb-kuh"/>
+                <constraint firstItem="OPr-iK-uso" firstAttribute="top" secondItem="4pe-TS-018" secondAttribute="bottom" constant="20" id="uvw-bE-2Jt"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="centerX" secondItem="wdE-P8-Npw" secondAttribute="centerX" id="ynP-bf-Vhf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="overviewLabel" destination="pjk-dq-bbn" id="UtC-Iw-4ER"/>
-                <outlet property="ratingLabel" destination="QOX-1z-GLZ" id="fc6-kB-zBg"/>
-                <outlet property="titleMovieLabel" destination="pYX-YR-7de" id="1AZ-0V-sMx"/>
-                <outlet property="webView" destination="EDt-gm-D4G" id="lQd-cw-aZS"/>
+                <outlet property="overviewLabel" destination="OPr-iK-uso" id="kbM-W2-Y1Y"/>
+                <outlet property="titleMovieLabel" destination="4pe-TS-018" id="i5z-RY-9d5"/>
+                <outlet property="webView" destination="EDt-gm-D4G" id="reV-vP-KZm"/>
             </connections>
-            <point key="canvasLocation" x="110.86956521739131" y="348.88392857142856"/>
+            <point key="canvasLocation" x="62.318840579710148" y="108.81696428571428"/>
         </view>
     </objects>
     <resources>

@@ -21,10 +21,11 @@
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="dk8-UA-3Cf">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="ivx-Wz-DG3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3K-nx-ioo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676.811594202899" y="276.5625"/>
+            <point key="canvasLocation" x="2697" y="425"/>
         </scene>
         <!--Search-->
         <scene sceneID="bPy-ge-aZO">
@@ -77,6 +78,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Eqa-dA-8Vr"/>
+                    <navigationItem key="navigationItem" id="bOg-L8-4Md"/>
                     <connections>
                         <outlet property="searchContainerView" destination="Qaz-9M-jvg" id="hs6-AM-KL4"/>
                         <outlet property="tableView" destination="QWs-0b-KSY" id="z36-Fa-6wK"/>
@@ -84,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhD-gR-5WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2626.0869565217395" y="-449.33035714285711"/>
+            <point key="canvasLocation" x="3510.144927536232" y="-354.24107142857139"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="4TG-gJ-TtZ">
@@ -93,27 +95,14 @@
                     <view key="view" contentMode="scaleToFill" id="tBz-nm-W1i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57K-gP-ZlB">
-                                <rect key="frame" x="20" y="44" width="46.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward" catalog="system"/>
-                                <connections>
-                                    <action selector="backButton:" destination="E61-PK-OzY" eventType="touchUpInside" id="oM6-VN-WEX"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="I7O-cj-de5"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="57K-gP-ZlB" firstAttribute="top" secondItem="I7O-cj-de5" secondAttribute="top" id="LsM-Gk-bB8"/>
-                            <constraint firstItem="57K-gP-ZlB" firstAttribute="leading" secondItem="I7O-cj-de5" secondAttribute="leading" constant="20" id="xpL-NE-54Y"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zK9-H6-WvH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRx-AB-x9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3431.884057971015" y="-449.33035714285711"/>
+            <point key="canvasLocation" x="1780" y="-291"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bAK-BU-hzF">
@@ -126,9 +115,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="lFf-2v-uZM" kind="relationship" relationship="viewControllers" id="uSx-Zg-IZ5"/>
-                        <segue destination="SjB-R6-efz" kind="relationship" relationship="viewControllers" id="lj9-ti-Nj2"/>
-                        <segue destination="eC2-Bh-432" kind="relationship" relationship="viewControllers" id="8lA-VD-Xy2"/>
+                        <segue destination="lFf-2v-uZM" kind="relationship" relationship="viewControllers" id="6Lj-ei-08o"/>
+                        <segue destination="SjB-R6-efz" kind="relationship" relationship="viewControllers" id="FbL-u2-q1O"/>
+                        <segue destination="eC2-Bh-432" kind="relationship" relationship="viewControllers" id="PIa-oL-QwZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJy-U4-ePr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,21 +135,18 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-6M-vPn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="ZDQ-at-8hi"/>
-                                    <constraint firstAttribute="height" constant="725" id="kq6-Mm-Bfs"/>
-                                </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4l7-SO-88s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hxQ-6M-vPn" firstAttribute="top" secondItem="4l7-SO-88s" secondAttribute="top" constant="44" id="4DA-3f-Fy3"/>
                             <constraint firstItem="hxQ-6M-vPn" firstAttribute="leading" secondItem="4l7-SO-88s" secondAttribute="leading" id="BBy-qk-8ch"/>
                             <constraint firstItem="4l7-SO-88s" firstAttribute="bottom" secondItem="hxQ-6M-vPn" secondAttribute="bottom" id="db0-eD-ZVZ"/>
                             <constraint firstItem="4l7-SO-88s" firstAttribute="trailing" secondItem="hxQ-6M-vPn" secondAttribute="trailing" id="hQp-Ac-JGq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movie" image="film" catalog="system" id="Og4-jt-Z7R"/>
+                    <tabBarItem key="tabBarItem" title="Movie" image="film" catalog="system" id="a1g-9r-vh5"/>
                     <navigationItem key="navigationItem" id="e0h-rR-ItB"/>
                     <connections>
                         <outlet property="tableView" destination="hxQ-6M-vPn" id="RJx-OY-CH1"/>
@@ -168,11 +154,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lci-zS-hrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779.7101449275365" y="-27.455357142857142"/>
+            <point key="canvasLocation" x="1780" y="425"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="secondarySystemBackgroundColor">

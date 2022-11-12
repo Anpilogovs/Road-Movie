@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
        
         setUpTable()
+        
     }
     
     private func setUpTable() {
@@ -54,7 +55,6 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else { return UITableViewCell() }
-        
         
         cell.delegate = self
         
@@ -105,11 +105,9 @@ extension HomeViewController: UITableViewDataSource {
 }
 extension HomeViewController: CollectionTableViewCellDelegate {
     func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
-
         DispatchQueue.main.async { [weak self] in
             guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-            controller.customView.configure(model: viewModel)
-            controller.modalPresentationStyle = .fullScreen
+            controller.detailView.configure(model: viewModel)
             self?.present(controller, animated: true)
         }
     }

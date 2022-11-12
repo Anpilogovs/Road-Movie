@@ -14,15 +14,14 @@ protocol CollectionTableViewCellDelegate: AnyObject {
 
 class CollectionTableViewCell: UITableViewCell {
     
-    static let identifier = "CollectionTableViewCell"
-    
     weak var delegate: CollectionTableViewCellDelegate?
     
-   private var movies: [Movie] = [Movie]()
+    static let identifier = "CollectionTableViewCell"
+    private var movies: [Movie] = [Movie]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -40,7 +39,7 @@ class CollectionTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         
     }
@@ -68,26 +67,34 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-
+        
         let titleName = movies[indexPath.row]
         guard let title = titleName.original_name ?? titleName.original_title else { return }
-    
+        
         NetworkRequest.shared.getMovie(query: title + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
                 print(videoElement)
-
                 let movies = self?.movies[indexPath.row]
-                guard let titleOverview = movies?.overview, let rating = movies?.vote_count else { return }
-                
-                let detailModel = DetailViewModel(title: "Name Movie: \(title)", videoView:  videoElement, titleOverview: "Overview: \(titleOverview)", rating: "Rating: \(rating)")
-            
+                guard let titleOverview = movies?.overview else { return }
+                let detailModel = DetailViewModel(title: title, videoView:  videoElement, titleOverview: "Overview: \(titleOverview)")
                 guard let selfStrong = self else { return }
                 self?.delegate?.collectionTableViewDidTapCell(selfStrong, viewModel: detailModel)
-        
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config  = UIContextMenuConfiguration(identifier: nil,
+                                                 previewProvider: nil) { _ in
+            let donwloadAction = UIAction(title: "Donwload", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                print("Donwload")
+            }
+            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [donwloadAction])
+        }
+        
+        return config
     }
 }

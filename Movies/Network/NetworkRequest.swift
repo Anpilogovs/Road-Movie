@@ -11,7 +11,7 @@ import Foundation
 struct Constants {
     static let apiKey = "08e8119e4bf4b11a0e579aaaad7bd3ce"
     static let url = "https://api.themoviedb.org"
-    static let youTubeApi_Key = "AIzaSyBPYMxb71Rc4hSfkk9j5pboQtX85B6tw94"
+    static let youTubeApi_Key = "AIzaSyAUkGJVHtY1LTLnWurcz3cgN2DFVhk_5IA"
     static let youTubeUrl = "https://youtube.googleapis.com/youtube/v3/search?"
 }
 
@@ -95,7 +95,6 @@ class NetworkRequest {
         }
         task.resume()
     }
-    
 
     func getTvShow(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/tv?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0") else { return }
@@ -137,8 +136,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-    
-    func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
+     func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void ) {
         
      guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
@@ -154,7 +152,6 @@ class NetworkRequest {
                 completion(.success(results.items[0]))
             } catch {
                 completion(.failure(error))
-                print(error.localizedDescription)
             }
         }
         task.resume()

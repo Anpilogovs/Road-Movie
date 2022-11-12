@@ -6,35 +6,25 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
-    
+
 
     
+    var detailView = DetailView.intanceFromNib()
     
-    let customView =  DetailView.intanceFromNib()
     
-    
-    override func loadView() {
-        super.loadView()
-       
-    }
+
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        setUpDetailView()
+        
+        view.addSubview(detailView)
     }
     
-    private func setUpDetailView() {
-        let height: CGFloat = 0.8
-        let y: CGFloat = 100
-        customView.frame = CGRect(x: .zero, y: y, width: self.view.frame.width, height: self.view.frame.height * height)
-        view.addSubview(customView)
-    
-    }
+   
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    
 }

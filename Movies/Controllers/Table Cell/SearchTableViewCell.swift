@@ -6,11 +6,13 @@
 //
 
 import UIKit
-
 class SearchTableViewCell: UITableViewCell {
+    
    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    public var movies: [Movie] = [Movie]()
     
     static let identifier = "SearchTableViewCell"
     static func nib() -> UINib {
@@ -21,15 +23,9 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-    
+  
     func configure(model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
         
@@ -37,3 +33,4 @@ class SearchTableViewCell: UITableViewCell {
         nameLabel.text = model.nameMovie
     }
 }
+

@@ -33,6 +33,8 @@
 		F3BEF25B2909B37400BFB525 /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEF25A2909B37400BFB525 /* TMDBResponse.swift */; };
 		F3BEF25E2909D0EA00BFB525 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F3BEF25D2909D0EA00BFB525 /* SDWebImage */; };
 		F3BEF2602909D0EA00BFB525 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3BEF25F2909D0EA00BFB525 /* SDWebImageMapKit */; };
+		F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D52673291EC7C3001EFC42 /* SearchResultViewController.swift */; };
+		F3D52676291EC7C3001EFC42 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		F3BEF2532909AEB600BFB525 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
 		F3BEF2582909B30E00BFB525 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		F3BEF25A2909B37400BFB525 /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
+		F3D52673291EC7C3001EFC42 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 		F3BEF24A2909A75D00BFB525 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3D5267729201EFD001EFC42 /* SearchResult */,
 				F3A511A82911483E003D3307 /* General */,
 				F3ACEEF1291A71CF0098BF91 /* View  */,
 				F3A5119D290D2712003D3307 /* Collection Cell */,
@@ -195,6 +200,15 @@
 				F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */,
 			);
 			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		F3D5267729201EFD001EFC42 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				F3D52673291EC7C3001EFC42 /* SearchResultViewController.swift */,
+				F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */,
+			);
+			path = SearchResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +282,7 @@
 				F3BEF2552909AEB600BFB525 /* CollectionTableViewCell.xib in Resources */,
 				F3BEF2512909AE3700BFB525 /* CollectionViewCell.xib in Resources */,
 				F3BEF23F2909A64300BFB525 /* LaunchScreen.storyboard in Resources */,
+				F3D52676291EC7C3001EFC42 /* SearchResultViewController.xib in Resources */,
 				F3BEF23C2909A64300BFB525 /* Assets.xcassets in Resources */,
 				F3BEF23A2909A63F00BFB525 /* Main.storyboard in Resources */,
 				F3A511A1290ED1D4003D3307 /* SearchTableViewCell.xib in Resources */,
@@ -296,6 +311,7 @@
 				F3A511A3290EE7D7003D3307 /* TitleViewModel.swift in Sources */,
 				F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */,
 				F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */,
+				F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */,
 				F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

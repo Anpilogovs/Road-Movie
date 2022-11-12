@@ -8,27 +8,28 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
+   
     private var searchController = UISearchController()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
     
-    private var movies: [Movie] = [Movie]()
+    public var movies: [Movie] = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSearch()
         setUpTable()
         fetchMovie()
+        
     }
-    //
+
     private func setUpSearch() {
-        searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: SearchResultViewController())
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         searchContainerView.addSubview(searchController.searchBar)
     }
-
+    
     private func setUpTable() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -58,7 +59,6 @@ class SearchViewController: UIViewController {
     }
     
     private func fetchMovie() {
-        
         NetworkRequest.shared.getMovies { result in
             switch result {
             case .success(let titles):
@@ -73,13 +73,8 @@ class SearchViewController: UIViewController {
     }
 }
 
-
-extension SearchViewController: UITableViewDelegate {
-    
-    
-}
-
 extension SearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
         
@@ -95,28 +90,27 @@ extension SearchViewController: UITableViewDataSource {
         return cell
         
     }
+}
+
+extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-     
-    }
-}
-
-extension SearchViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
         
-        let searchBar = searchController.searchBar
-        guard  let query = searchBar.text,
-               !query.trimmingCharacters(in: .whitespaces).isEmpty,
-               query.trimmingCharacters(in: .whitespaces).count >= 2 else { return  fetchMovie() }
+        let title = movies[indexPath.row]
+        guard let titleName = title.original_title ?? title.original_name else { return }
         
-        NetworkRequest.shared.searchMovies(query: query) { result in
+        NetworkRequest.shared.getMovie(query: titleName) { [weak self] result in
             switch result {
-            case .success(let title):
-                self.movies = title
+            case .success(let videoElement):
+                print(videoElement)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    let movies = self?.movies[indexPath.row]
+                    guard let titleOverview = movies?.overview else { return }
+                    guard  let controller =  self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+                    let detailModel = DetailViewModel(title: titleName, videoView:  videoElement, titleOverview: "Overview: \(titleOverview)")
+                    controller.detailView.configure(model: detailModel)
+                    self?.present(controller, animated: true)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -125,4 +119,37 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
+extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate {
 
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        let searchBar = searchController.searchBar
+        guard  let query = searchBar.text,
+               !query.trimmingCharacters(in: .whitespaces).isEmpty,
+               query.trimmingCharacters(in: .whitespaces).count >= 2,
+        let searchResult = searchController.searchResultsController as? SearchResultViewController else { return }
+        
+        searchResult.delegate = self
+        
+        NetworkRequest.shared.searchMovies(query: query) { result in
+            switch result {
+            case .success(let title):
+                DispatchQueue.main.async {
+                    searchResult.movies = title
+                    searchResult.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func searchResuldidTapToCell(viewModel: DetailViewModel) {
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let controller =  self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+            controller.detailView.configure(model: viewModel)
+            self?.present(controller, animated: true)
+        }
+    }
+}
