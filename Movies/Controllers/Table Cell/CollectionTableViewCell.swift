@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol CollectionTableViewCellDelegate: AnyObject {
-    func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel)
-}
-
-
 class CollectionTableViewCell: UITableViewCell {
     
     weak var delegate: CollectionTableViewCellDelegate?
@@ -40,8 +35,15 @@ class CollectionTableViewCell: UITableViewCell {
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        
+    func donwloadMovie(indexPath: IndexPath)  {
+        CoreDataManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
+            switch result {
+            case .success():
+                print("donwloaded to Database")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -88,9 +90,9 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config  = UIContextMenuConfiguration(identifier: nil,
-                                                 previewProvider: nil) { _ in
+                                                 previewProvider: nil) {[weak self] _ in
             let donwloadAction = UIAction(title: "Donwload", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
-                print("Donwload")
+                self?.donwloadMovie(indexPath: indexPath)
             }
             return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [donwloadAction])
         }

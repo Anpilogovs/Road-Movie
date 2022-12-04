@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F309E30D293BA58100EAD123 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309E30C293BA58100EAD123 /* CoreDataManager.swift */; };
+		F34F714A29256D35005666B5 /* MovieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */; };
 		F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5229150CCF006F66CA /* DetailViewController.swift */; };
 		F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D57291515D1006F66CA /* DetailViewModel.swift */; };
 		F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5929153EC5006F66CA /* DetailView.swift */; };
@@ -35,9 +37,13 @@
 		F3BEF2602909D0EA00BFB525 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3BEF25F2909D0EA00BFB525 /* SDWebImageMapKit */; };
 		F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D52673291EC7C3001EFC42 /* SearchResultViewController.swift */; };
 		F3D52676291EC7C3001EFC42 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */; };
+		F3D5267A29228D87001EFC42 /* SearchResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5267929228D87001EFC42 /* SearchResultProtocol.swift */; };
+		F3D5267C29228DF1001EFC42 /* CollectionTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5267B29228DF1001EFC42 /* CollectionTableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F309E30C293BA58100EAD123 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F34F714929256D35005666B5 /* MovieModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieModel.xcdatamodel; sourceTree = "<group>"; };
 		F36D3D5229150CCF006F66CA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F36D3D57291515D1006F66CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F36D3D5929153EC5006F66CA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		F3BEF25A2909B37400BFB525 /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
 		F3D52673291EC7C3001EFC42 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
+		F3D5267929228D87001EFC42 /* SearchResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultProtocol.swift; sourceTree = "<group>"; };
+		F3D5267B29228DF1001EFC42 /* CollectionTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +139,10 @@
 		F3BEF2262909A63F00BFB525 = {
 			isa = PBXGroup;
 			children = (
+				F3BEF24B2909A78100BFB525 /* Manager */,
+				F3D5267829228D19001EFC42 /* Protocol */,
 				F36D3D56291515A9006F66CA /* ViewModels */,
 				F3BEF24C2909A78B00BFB525 /* Model */,
-				F3BEF24B2909A78100BFB525 /* Network */,
 				F3BEF24A2909A75D00BFB525 /* Controllers */,
 				F3BEF2312909A63F00BFB525 /* Movies */,
 				F3BEF2302909A63F00BFB525 /* Products */,
@@ -158,6 +167,7 @@
 				F3BEF23B2909A64300BFB525 /* Assets.xcassets */,
 				F3BEF23D2909A64300BFB525 /* LaunchScreen.storyboard */,
 				F3BEF2402909A64300BFB525 /* Info.plist */,
+				F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -174,12 +184,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		F3BEF24B2909A78100BFB525 /* Network */ = {
+		F3BEF24B2909A78100BFB525 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				F3BEF2582909B30E00BFB525 /* NetworkRequest.swift */,
+				F309E30C293BA58100EAD123 /* CoreDataManager.swift */,
 			);
-			path = Network;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		F3BEF24C2909A78B00BFB525 /* Model */ = {
@@ -209,6 +220,15 @@
 				F3D52674291EC7C3001EFC42 /* SearchResultViewController.xib */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		F3D5267829228D19001EFC42 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F3D5267929228D87001EFC42 /* SearchResultProtocol.swift */,
+				F3D5267B29228DF1001EFC42 /* CollectionTableViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,8 +330,12 @@
 				F3A511A0290ED1D4003D3307 /* SearchTableViewCell.swift in Sources */,
 				F3A511A3290EE7D7003D3307 /* TitleViewModel.swift in Sources */,
 				F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */,
+				F34F714A29256D35005666B5 /* MovieModel.xcdatamodeld in Sources */,
 				F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */,
+				F3D5267A29228D87001EFC42 /* SearchResultProtocol.swift in Sources */,
+				F3D5267C29228DF1001EFC42 /* CollectionTableViewProtocol.swift in Sources */,
 				F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */,
+				F309E30D293BA58100EAD123 /* CoreDataManager.swift in Sources */,
 				F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +598,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F34F714929256D35005666B5 /* MovieModel.xcdatamodel */,
+			);
+			currentVersion = F34F714929256D35005666B5 /* MovieModel.xcdatamodel */;
+			path = MovieModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F3BEF2272909A63F00BFB525 /* Project object */;
 }

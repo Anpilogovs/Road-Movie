@@ -15,13 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="ien-vl-PlS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-Fn-Otw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UI9-dj-XyZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wYV-Fn-Otw" firstAttribute="top" secondItem="UI9-dj-XyZ" secondAttribute="top" id="EFx-s9-TIn"/>
+                            <constraint firstItem="UI9-dj-XyZ" firstAttribute="trailing" secondItem="wYV-Fn-Otw" secondAttribute="trailing" id="Em7-qS-SHj"/>
+                            <constraint firstItem="UI9-dj-XyZ" firstAttribute="bottom" secondItem="wYV-Fn-Otw" secondAttribute="bottom" id="M4r-Dg-Nz0"/>
+                            <constraint firstItem="wYV-Fn-Otw" firstAttribute="leading" secondItem="UI9-dj-XyZ" secondAttribute="leading" id="vk9-N0-N97"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="dk8-UA-3Cf">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="ivx-Wz-DG3"/>
+                    <connections>
+                        <outlet property="tableView" destination="wYV-Fn-Otw" id="IxA-Ct-ktG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3K-nx-ioo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhD-gR-5WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3510.144927536232" y="-354.24107142857139"/>
+            <point key="canvasLocation" x="1780" y="-346"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="4TG-gJ-TtZ">
@@ -102,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRx-AB-x9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="-291"/>
+            <point key="canvasLocation" x="896" y="-776"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bAK-BU-hzF">

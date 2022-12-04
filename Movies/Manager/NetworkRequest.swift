@@ -22,7 +22,7 @@ class NetworkRequest {
     private init() {}
     
     func getTrendingMovies(complection: @escaping (Result<[Movie], Error>) -> Void) {
-    
+        
         guard let url = URL(string: "\(Constants.url)/3/movie/popular?api_key=\(Constants.apiKey)") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -38,9 +38,7 @@ class NetworkRequest {
             }
         }
         task.resume()
-     }
-    
-   
+    }
     
     func getUpComingMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/movie/upcoming?api_key=\(Constants.apiKey)&language=en-US&page=1") else {return}
@@ -68,7 +66,7 @@ class NetworkRequest {
             
             do {
                 let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-        
+                
                 completion(.success(results.results))
             } catch {
                 completion(.failure(error))
@@ -76,7 +74,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-
+    
     func getMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/movie?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -86,7 +84,7 @@ class NetworkRequest {
             
             do {
                 let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-        
+                
                 completion(.success(results.results))
                 print(results)
             } catch {
@@ -95,7 +93,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-
+    
     func getTvShow(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/tv?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0") else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -105,7 +103,7 @@ class NetworkRequest {
             
             do {
                 let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-        
+                
                 completion(.success(results.results))
                 print(results)
             } catch {
@@ -114,11 +112,11 @@ class NetworkRequest {
         }
         task.resume()
     }
-
+    
     
     func searchMovies(query: String, completion: @escaping (Result<[Movie], Error>) -> Void) {
         
-     guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         guard let url = URL(string: "\(Constants.url)/3/search/movie?api_key=\(Constants.apiKey)&query=\(query)")  else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
             guard let data = data , error == nil else {
@@ -127,7 +125,7 @@ class NetworkRequest {
             
             do {
                 let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-        
+                
                 completion(.success(results.results))
                 print(results)
             } catch {
@@ -136,9 +134,10 @@ class NetworkRequest {
         }
         task.resume()
     }
-     func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void ) {
+    
+    func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void ) {
         
-     guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         guard let url = URL(string: "\(Constants.youTubeUrl)q=\(query)&key=\(Constants.youTubeApi_Key)")  else { return }
         

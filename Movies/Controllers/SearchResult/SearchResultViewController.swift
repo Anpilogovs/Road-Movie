@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol SearchResultViewControllerDelegate: AnyObject {
-    func searchResuldidTapToCell(viewModel: DetailViewModel)
-}
+//protocol SearchResultViewControllerDelegate: AnyObject {
+//    func searchResuldidTapToCell(viewModel: DetailViewModel)
+//}
 
 class SearchResultViewController: UIViewController {
     
@@ -46,6 +46,7 @@ extension SearchResultViewController: UICollectionViewDelegate {
         NetworkRequest.shared.getMovie(query: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
+                print(videoElement)
                     self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(title: titleName, videoView: videoElement, titleOverview: titleOverview))
             case .failure(let error):
                 print(error.localizedDescription)
@@ -59,8 +60,8 @@ extension SearchResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell  else { return UICollectionViewCell() }
         
-        let coverMove = movies[indexPath.row].poster_path
-        cell.configure(model: coverMove ?? "")
+        let coverMove = movies[indexPath.row]
+        cell.configure(model: coverMove.poster_path ?? "")
         return cell
     }
 }

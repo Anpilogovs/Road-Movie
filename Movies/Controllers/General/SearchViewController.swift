@@ -28,6 +28,10 @@ class SearchViewController: UIViewController {
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         searchContainerView.addSubview(searchController.searchBar)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search movie and tv"
+        definesPresentationContext = true
+
     }
     
     private func setUpTable() {
@@ -142,7 +146,7 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultViewControl
                 print(error.localizedDescription)
             }
         }
-    }
+   }
     
     func searchResuldidTapToCell(viewModel: DetailViewModel) {
         

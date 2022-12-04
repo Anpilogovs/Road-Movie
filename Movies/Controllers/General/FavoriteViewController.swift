@@ -11,6 +11,8 @@ class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var movies: [Movie] = [Movie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,5 +49,6 @@ extension FavoriteViewController: UITableViewDataSource {
         
     }
     
+      
     
 }
