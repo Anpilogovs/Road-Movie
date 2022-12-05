@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F309E30D293BA58100EAD123 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309E30C293BA58100EAD123 /* CoreDataManager.swift */; };
+		F309E310293C97CC00EAD123 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */; };
+		F309E311293C97CC00EAD123 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */; };
 		F34F714A29256D35005666B5 /* MovieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */; };
 		F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5229150CCF006F66CA /* DetailViewController.swift */; };
 		F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D57291515D1006F66CA /* DetailViewModel.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		F309E30C293BA58100EAD123 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		F34F714929256D35005666B5 /* MovieModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieModel.xcdatamodel; sourceTree = "<group>"; };
 		F36D3D5229150CCF006F66CA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F36D3D57291515D1006F66CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				F3BEF2532909AEB600BFB525 /* CollectionTableViewCell.xib */,
 				F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */,
 				F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */,
+				F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */,
+				F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				F3BEF23F2909A64300BFB525 /* LaunchScreen.storyboard in Resources */,
 				F3D52676291EC7C3001EFC42 /* SearchResultViewController.xib in Resources */,
 				F3BEF23C2909A64300BFB525 /* Assets.xcassets in Resources */,
+				F309E311293C97CC00EAD123 /* FavoriteTableViewCell.xib in Resources */,
 				F3BEF23A2909A63F00BFB525 /* Main.storyboard in Resources */,
 				F3A511A1290ED1D4003D3307 /* SearchTableViewCell.xib in Resources */,
 				F3ACEEED291901D70098BF91 /* DetailView.xib in Resources */,
@@ -336,6 +343,7 @@
 				F3D5267C29228DF1001EFC42 /* CollectionTableViewProtocol.swift in Sources */,
 				F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */,
 				F309E30D293BA58100EAD123 /* CoreDataManager.swift in Sources */,
+				F309E310293C97CC00EAD123 /* FavoriteTableViewCell.swift in Sources */,
 				F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

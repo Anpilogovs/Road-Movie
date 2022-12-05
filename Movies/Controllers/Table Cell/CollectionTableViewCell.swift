@@ -39,7 +39,7 @@ class CollectionTableViewCell: UITableViewCell {
         CoreDataManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
             switch result {
             case .success():
-                print("donwloaded to Database")
+                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -99,4 +99,8 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
         
         return config
     }
+    
+    
+    
+    
 }

@@ -108,6 +108,7 @@ extension HomeViewController: CollectionTableViewCellDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
             controller.detailView.configure(model: viewModel)
+            controller.modalPresentationStyle = .fullScreen
             self?.present(controller, animated: true)
         }
     }

@@ -13,6 +13,8 @@ class CoreDataManager {
     
     enum DatabaseError: Error {
         case failedSaveData
+        case failedfetchData
+        case failedToDeleteData
     }
     
     
@@ -42,6 +44,37 @@ class CoreDataManager {
             completion(.success(()))
         } catch {
             completion(.failure(DatabaseError.failedSaveData))
+        }
+    }
+    
+    func fetchingMovieFromDataBase(completion: @escaping (Result<[MovieTitle], Error>) -> Void) {
+        
+        guard let appleDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let context = appleDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest<MovieTitle>
+        request = MovieTitle.fetchRequest()
+        
+        do {
+            let movie = try context.fetch(request)
+            completion(.success(movie))
+        } catch {
+            completion(.failure(DatabaseError.failedfetchData))
+        }
+    }
+    
+    func deleteMovie(model: MovieTitle, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let appleDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let context = appleDelegate.persistentContainer.viewContext
+        context.delete(model)
+        
+        do {
+            try context.save()
+            completion(.success(()))
+        } catch {
+            completion(.failure(DatabaseError.failedToDeleteData))
         }
     }
 }
