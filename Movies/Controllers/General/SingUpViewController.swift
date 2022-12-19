@@ -66,7 +66,6 @@ class SingUpViewController: UIViewController {
     
     
     @IBAction func singUpTapped(_ sender: Any) {
-   
         //Validate the fields
         let error = validateFields()
         
@@ -84,12 +83,11 @@ class SingUpViewController: UIViewController {
                 self.showError("Error creating user")
             } else {
                 //User was created successfully, now store the first name and  las name
-            
+                
             }
         }
         
         //Transition to the home screen
-    
     }
     
     
