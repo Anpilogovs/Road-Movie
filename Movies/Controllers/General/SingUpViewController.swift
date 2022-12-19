@@ -66,7 +66,6 @@ class SingUpViewController: UIViewController {
     
     
     @IBAction func singUpTapped(_ sender: Any) {
-        
    
         //Validate the fields
         let error = validateFields()
