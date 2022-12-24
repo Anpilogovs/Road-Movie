@@ -12,11 +12,12 @@
 		F309E310293C97CC00EAD123 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */; };
 		F309E311293C97CC00EAD123 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */; };
 		F34F714A29256D35005666B5 /* MovieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */; };
-		F3593643294E13FD00FC85FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593642294E13FD00FC85FD /* ViewController.swift */; };
+		F3593643294E13FD00FC85FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593642294E13FD00FC85FD /* MainViewController.swift */; };
 		F3593645294E140600FC85FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593644294E140600FC85FD /* LoginViewController.swift */; };
 		F3593647294E141300FC85FD /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593646294E141300FC85FD /* SingUpViewController.swift */; };
 		F35936CF294F0B0300FC85FD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35936CE294F0B0300FC85FD /* Utilities.swift */; };
-		F35936D9294F8F4B00FC85FD /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F35936D8294F8F4B00FC85FD /* GoogleService-Info-2.plist */; };
+		F35936D9294F8F4B00FC85FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F35936D8294F8F4B00FC85FD /* GoogleService-Info.plist */; };
+		F35936FE2952661B00FC85FD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35936FD2952661B00FC85FD /* Constant.swift */; };
 		F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5229150CCF006F66CA /* DetailViewController.swift */; };
 		F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D57291515D1006F66CA /* DetailViewModel.swift */; };
 		F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5929153EC5006F66CA /* DetailView.swift */; };
@@ -57,11 +58,12 @@
 		F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		F34F714929256D35005666B5 /* MovieModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieModel.xcdatamodel; sourceTree = "<group>"; };
-		F3593642294E13FD00FC85FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3593642294E13FD00FC85FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3593644294E140600FC85FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3593646294E141300FC85FD /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		F35936CE294F0B0300FC85FD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		F35936D8294F8F4B00FC85FD /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		F35936D8294F8F4B00FC85FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F35936FD2952661B00FC85FD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F36D3D5229150CCF006F66CA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F36D3D57291515D1006F66CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F36D3D5929153EC5006F66CA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -115,7 +117,6 @@
 				528DB5772EAFE9394BFB53B3 /* Pods-Movies.debug.xcconfig */,
 				64B1956F0EFB3418E27B3EFA /* Pods-Movies.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -123,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				F35936CE294F0B0300FC85FD /* Utilities.swift */,
+				F35936FD2952661B00FC85FD /* Constant.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -152,7 +154,7 @@
 				F3BEF2462909A74500BFB525 /* SearchViewController.swift */,
 				F3BEF2362909A63F00BFB525 /* HomeViewController.swift */,
 				F36D3D5229150CCF006F66CA /* DetailViewController.swift */,
-				F3593642294E13FD00FC85FD /* ViewController.swift */,
+				F3593642294E13FD00FC85FD /* MainViewController.swift */,
 				F3593644294E140600FC85FD /* LoginViewController.swift */,
 				F3593646294E141300FC85FD /* SingUpViewController.swift */,
 			);
@@ -211,7 +213,7 @@
 				F3BEF23D2909A64300BFB525 /* LaunchScreen.storyboard */,
 				F3BEF2402909A64300BFB525 /* Info.plist */,
 				F34F714829256D35005666B5 /* MovieModel.xcdatamodeld */,
-				F35936D8294F8F4B00FC85FD /* GoogleService-Info-2.plist */,
+				F35936D8294F8F4B00FC85FD /* GoogleService-Info.plist */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -330,8 +332,8 @@
 			);
 			mainGroup = F3BEF2262909A63F00BFB525;
 			packageReferences = (
-				F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
-				F3A51198290D232F003D3307 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F3A51198290D232F003D3307 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = F3BEF2302909A63F00BFB525 /* Products */;
 			projectDirPath = "";
@@ -347,7 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35936D9294F8F4B00FC85FD /* GoogleService-Info-2.plist in Resources */,
+				F35936D9294F8F4B00FC85FD /* GoogleService-Info.plist in Resources */,
 				F3BEF2552909AEB600BFB525 /* CollectionTableViewCell.xib in Resources */,
 				F3BEF2512909AE3700BFB525 /* CollectionViewCell.xib in Resources */,
 				F3BEF23F2909A64300BFB525 /* LaunchScreen.storyboard in Resources */,
@@ -415,7 +417,8 @@
 				F3A5124029143E71003D3307 /* VideoSearchResponse.swift in Sources */,
 				F3593645294E140600FC85FD /* LoginViewController.swift in Sources */,
 				F3BEF2472909A74500BFB525 /* SearchViewController.swift in Sources */,
-				F3593643294E13FD00FC85FD /* ViewController.swift in Sources */,
+				F3593643294E13FD00FC85FD /* MainViewController.swift in Sources */,
+				F35936FE2952661B00FC85FD /* Constant.swift in Sources */,
 				F3BEF2542909AEB600BFB525 /* CollectionTableViewCell.swift in Sources */,
 				F3BEF2352909A63F00BFB525 /* SceneDelegate.swift in Sources */,
 				F3BEF25B2909B37400BFB525 /* TMDBResponse.swift in Sources */,
@@ -657,7 +660,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F3A51198290D232F003D3307 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		F3A51198290D232F003D3307 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -665,7 +668,7 @@
 				kind = branch;
 			};
 		};
-		F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -678,22 +681,22 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F3A51199290D232F003D3307 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 		F3A5119B290D232F003D3307 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
 		F3BEF25D2909D0EA00BFB525 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 		F3BEF25F2909D0EA00BFB525 /* SDWebImageMapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = F3BEF25C2909D0EA00BFB525 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

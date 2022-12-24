@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-Fn-Otw">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3K-nx-ioo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="948"/>
+            <point key="canvasLocation" x="809" y="1046"/>
         </scene>
         <!--Search-->
         <scene sceneID="bPy-ge-aZO">
@@ -51,15 +51,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hih-k1-eaQ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <navigationBarAppearance key="standardAppearance"/>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QWs-0b-KSY">
-                                <rect key="frame" x="0.0" y="173" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WBD-Tj-m5K">
-                                <rect key="frame" x="12" y="142" width="390" height="32"/>
+                                <rect key="frame" x="12" y="98" width="390" height="32"/>
                                 <segments>
                                     <segment title="Movie"/>
                                     <segment title="TV"/>
@@ -69,7 +69,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-9M-jvg">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhD-gR-5WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-523"/>
+            <point key="canvasLocation" x="1780" y="-337"/>
         </scene>
         <!--Sing Up View Controller-->
         <scene sceneID="a66-Nx-thM">
@@ -162,7 +162,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TdM-6I-w7J"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="N3W-Ny-hrO" firstAttribute="leading" secondItem="TdM-6I-w7J" secondAttribute="leading" constant="40" id="R1G-7B-JL3"/>
                             <constraint firstItem="N3W-Ny-hrO" firstAttribute="top" secondItem="TdM-6I-w7J" secondAttribute="top" constant="40" id="jVz-h5-Aoe"/>
@@ -194,7 +194,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BUt-k3-e7S">
                                 <rect key="frame" x="40" y="128" width="334" height="221"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3EQ-Ki-XPL">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3EQ-Ki-XPL">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -212,7 +212,7 @@
                                             <action selector="loginTapped:" destination="rCu-Uv-nQx" eventType="touchUpInside" id="XEO-HB-8mA"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8g-Kx-TNw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8g-Kx-TNw">
                                         <rect key="frame" x="0.0" y="187" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemPinkColor"/>
@@ -236,20 +236,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Hz-yI-VTd"/>
                     <connections>
+                        <outlet property="emailTextField" destination="3EQ-Ki-XPL" id="uGt-Vr-7MG"/>
                         <outlet property="errorLabel" destination="c8g-Kx-TNw" id="6bJ-4k-4yX"/>
-                        <outlet property="firstNameTextField" destination="3EQ-Ki-XPL" id="uGt-Vr-7MG"/>
-                        <outlet property="lastNameTextField" destination="jIy-7v-Jh1" id="6ws-ri-58D"/>
                         <outlet property="loginButton" destination="hxK-mb-Jbi" id="S9u-c7-ZFf"/>
+                        <outlet property="passwordTextField" destination="jIy-7v-Jh1" id="6ws-ri-58D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJb-u0-bPN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-955" y="-558"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Ilm-IY-gc7">
             <objects>
-                <viewController id="2c4-jU-oUG" customClass="ViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2c4-jU-oUG" customClass="MainViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJf-il-xTX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,7 +267,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="9CP-2w-xBC" kind="show" id="zRd-la-68W"/>
+                                            <segue destination="9CP-2w-xBC" kind="show" id="pNC-v8-2NJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-y3-b5N">
@@ -277,7 +277,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="rCu-Uv-nQx" kind="show" id="m0W-LD-5uf"/>
+                                            <segue destination="rCu-Uv-nQx" kind="show" id="nlu-VY-ZQi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -287,7 +287,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RMg-r3-eOn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Hj-E8-fvJ" firstAttribute="leading" secondItem="RMg-r3-eOn" secondAttribute="leading" constant="40" id="RoO-fW-5TY"/>
                             <constraint firstItem="RMg-r3-eOn" firstAttribute="trailing" secondItem="2Hj-E8-fvJ" secondAttribute="trailing" constant="40" id="lSj-9s-yIb"/>
@@ -296,9 +296,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tx9-Ck-rkG"/>
                     <connections>
-                        <outlet property="loginButton" destination="PBW-y3-b5N" id="SGv-sN-gHj"/>
-                        <outlet property="singUpButton" destination="gDg-dh-BYN" id="Xj3-QX-aTf"/>
-                        <segue destination="9kA-GK-Xz2" kind="show" id="GAR-a1-J2I"/>
+                        <outlet property="loginButton" destination="PBW-y3-b5N" id="skJ-Ve-iH8"/>
+                        <outlet property="singUpButton" destination="gDg-dh-BYN" id="bEK-bS-v64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkz-5g-6Fa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,12 +309,14 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="E61-PK-OzY" customClass="DetailViewController" customModule="Movies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tBz-nm-W1i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="I7O-cj-de5"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zK9-H6-WvH"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="AuG-Zq-YCG"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRx-AB-x9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,7 +346,7 @@
         <!--Home View Controller-->
         <scene sceneID="Cwb-16-wb7">
             <objects>
-                <viewController id="lFf-2v-uZM" customClass="HomeViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="lFf-2v-uZM" customClass="HomeViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nET-GB-l1N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,12 +368,11 @@
                     <navigationItem key="navigationItem" id="e0h-rR-ItB"/>
                     <connections>
                         <outlet property="tableView" destination="hxQ-6M-vPn" id="RJx-OY-CH1"/>
-                        <segue destination="E61-PK-OzY" kind="show" id="Oqq-ol-nOp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lci-zS-hrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2650.7246376811595" y="156.69642857142856"/>
+            <point key="canvasLocation" x="2607" y="157"/>
         </scene>
         <!--Movie-->
         <scene sceneID="yvM-39-Rse">
@@ -391,7 +391,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adn-2Y-WT5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718.840579710145" y="156.69642857142856"/>
+            <point key="canvasLocation" x="1780" y="446"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6hc-bv-6KR">
