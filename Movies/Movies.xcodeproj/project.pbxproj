@@ -129,6 +129,16 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F35937012957B5D700FC85FD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F3593642294E13FD00FC85FD /* MainViewController.swift */,
+				F3593644294E140600FC85FD /* LoginViewController.swift */,
+				F3593646294E141300FC85FD /* SingUpViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		F36D3D56291515A9006F66CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +164,6 @@
 				F3BEF2462909A74500BFB525 /* SearchViewController.swift */,
 				F3BEF2362909A63F00BFB525 /* HomeViewController.swift */,
 				F36D3D5229150CCF006F66CA /* DetailViewController.swift */,
-				F3593642294E13FD00FC85FD /* MainViewController.swift */,
-				F3593644294E140600FC85FD /* LoginViewController.swift */,
-				F3593646294E141300FC85FD /* SingUpViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 		F3BEF24A2909A75D00BFB525 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F35937012957B5D700FC85FD /* Login */,
 				F3D5267729201EFD001EFC42 /* SearchResult */,
 				F3A511A82911483E003D3307 /* General */,
 				F3ACEEF1291A71CF0098BF91 /* View  */,

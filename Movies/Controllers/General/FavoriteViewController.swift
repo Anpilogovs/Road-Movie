@@ -24,7 +24,6 @@ class FavoriteViewController: UIViewController {
         }
     }
     
-    
     private func  setUpTableView() {
 //        self.tableView.delegate = self
         self.tableView.dataSource = self

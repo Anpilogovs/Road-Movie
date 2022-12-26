@@ -10,12 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleAspectFit" ambiguous="YES" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
+        <view contentMode="scaleAspectFit" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="408" height="463"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <wkWebView contentMode="scaleToFill" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
-                    <rect key="frame" x="20" y="50" width="368" height="200"/>
+                    <rect key="frame" x="20" y="131.5" width="368" height="200"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="pFd-Hj-b9D"/>
@@ -26,17 +26,23 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-TS-018">
-                    <rect key="frame" x="20" y="270" width="368" height="30"/>
+                    <rect key="frame" x="20" y="351.5" width="368" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPr-iK-uso">
-                    <rect key="frame" x="20" y="320" width="368" height="20.5"/>
+                    <rect key="frame" x="20" y="401.5" width="368" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-9J-VLR">
+                    <rect key="frame" x="20" y="52" width="56" height="62.5"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Pb4-Qi-dcy"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -44,10 +50,12 @@
                 <constraint firstItem="4pe-TS-018" firstAttribute="top" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="20" id="2cP-JX-49h"/>
                 <constraint firstItem="OPr-iK-uso" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Dre-Uz-AZI"/>
                 <constraint firstAttribute="trailing" secondItem="4pe-TS-018" secondAttribute="trailing" constant="20" id="KFR-My-Rhy"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="wdE-P8-Npw" secondAttribute="top" constant="50" id="NqG-mo-dDS"/>
+                <constraint firstItem="u8M-9J-VLR" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" constant="20" id="ThL-if-z3G"/>
                 <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Tha-jO-Xyd"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="u8M-9J-VLR" secondAttribute="bottom" constant="17" id="dfv-mv-gFS"/>
                 <constraint firstItem="4pe-TS-018" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="hE4-JV-GEJ"/>
                 <constraint firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" constant="20" id="koN-3n-pFX"/>
+                <constraint firstItem="u8M-9J-VLR" firstAttribute="top" secondItem="Pb4-Qi-dcy" secondAttribute="top" constant="8" id="lQi-Y3-2ck"/>
                 <constraint firstItem="EDt-gm-D4G" firstAttribute="centerY" secondItem="wdE-P8-Npw" secondAttribute="centerY" id="nMW-La-wmv"/>
                 <constraint firstAttribute="trailing" secondItem="OPr-iK-uso" secondAttribute="trailing" constant="20" id="tDS-Fb-kuh"/>
                 <constraint firstItem="OPr-iK-uso" firstAttribute="top" secondItem="4pe-TS-018" secondAttribute="bottom" constant="20" id="uvw-bE-2Jt"/>
@@ -55,6 +63,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backButton" destination="u8M-9J-VLR" id="TI5-r5-U3J"/>
                 <outlet property="overviewLabel" destination="OPr-iK-uso" id="kbM-W2-Y1Y"/>
                 <outlet property="titleMovieLabel" destination="4pe-TS-018" id="i5z-RY-9d5"/>
                 <outlet property="webView" destination="EDt-gm-D4G" id="reV-vP-KZm"/>

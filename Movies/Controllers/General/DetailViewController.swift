@@ -14,16 +14,14 @@ class DetailViewController: UIViewController {
     
     var detailView = DetailView.intanceFromNib()
     
-    
-
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(detailView)
+        
+        detailView.backButton.addTarget(self, action: #selector(backOnScreenButton), for: .touchUpInside)
     }
     
-   
-    @IBAction func backButton(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @objc private func backOnScreenButton() {
+        dismiss(animated: true)
     }
 }

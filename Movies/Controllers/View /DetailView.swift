@@ -14,6 +14,8 @@ class DetailView: UIView {
     @IBOutlet weak var titleMovieLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    @IBOutlet weak var backButton: UIButton!
+    
    
     func configure(model: DetailViewModel) {
         
