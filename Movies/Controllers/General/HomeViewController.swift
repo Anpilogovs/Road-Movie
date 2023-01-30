@@ -24,14 +24,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
        
         setUpTable()
-        
     }
     
     private func setUpTable() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionTableViewCell.identifier)
-        
     }
 }
 

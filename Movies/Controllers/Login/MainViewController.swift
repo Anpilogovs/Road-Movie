@@ -25,5 +25,4 @@ class MainViewController: UIViewController {
         Utilities.styleHollowButton(loginButton)
         
     }
-    
 }

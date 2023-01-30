@@ -20,7 +20,6 @@ class SingUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         setUpElements()
     }
     
@@ -61,9 +60,6 @@ class SingUpViewController: UIViewController {
         return nil
     }
     
-    
-    
-    
     @IBAction func singUpTapped(_ sender: Any) {
         //Validate the fields
         let error = validateFields()
@@ -73,7 +69,6 @@ class SingUpViewController: UIViewController {
             //There's something wrong with the fields, show error message
            showError(error!)
         }
-        
         //Create cleaned versions of  the data
         let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -90,7 +85,6 @@ class SingUpViewController: UIViewController {
                 //There was an error creating the user
                 self.showError("Error creating user")
             } else {
-                
                 //User was created successfully, now store the first name and  las name
                 let db = Firestore.firestore()
                 db.collection("users").addDocument(data: ["firstname": firstName,
@@ -115,8 +109,8 @@ class SingUpViewController: UIViewController {
 
     func transitionToHome()  {
 
-      let homeViewController =   storyboard?.instantiateViewController(withIdentifier: Constant.Storyboard.homeViewController) as? HomeViewController
-
+      let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constant.Storyboard.homeViewController) as? HomeViewController 
+        
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
     }

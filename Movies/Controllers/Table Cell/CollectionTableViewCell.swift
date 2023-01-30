@@ -20,13 +20,10 @@ class CollectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
     
     func configure(movie: [Movie]) {
         self.movies = movie
@@ -99,8 +96,4 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
         
         return config
     }
-    
-    
-    
-    
 }
