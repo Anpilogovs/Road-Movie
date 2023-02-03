@@ -34,7 +34,6 @@ class SingUpViewController: UIViewController {
     
         Utilities.styleFilledButton(singUpButton)
     }
-    
 //    Check the fields and validate that the data is
 //    correct. If everything is correct, this method
 //    returns nil. Otherwise , it returns the error message

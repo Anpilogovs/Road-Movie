@@ -10,7 +10,6 @@ import UIKit
 //protocol SearchResultViewControllerDelegate: AnyObject {
 //    func searchResuldidTapToCell(viewModel: DetailViewModel)
 //}
-
 class SearchResultViewController: UIViewController {
     
    weak var delegate: SearchResultViewControllerDelegate?

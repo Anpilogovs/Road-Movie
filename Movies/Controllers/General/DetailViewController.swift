@@ -9,8 +9,6 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController {
-
-
     
     var detailView = DetailView.intanceFromNib()
     

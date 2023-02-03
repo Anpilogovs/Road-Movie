@@ -59,13 +59,11 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
     }
 }
 
-
 extension CollectionTableViewCell: UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
         
         let titleName = movies[indexPath.row]
         guard let title = titleName.original_name ?? titleName.original_title else { return }

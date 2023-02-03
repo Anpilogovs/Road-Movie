@@ -16,14 +16,13 @@ class DetailView: UIView {
     
     @IBOutlet weak var backButton: UIButton!
     
-   
     func configure(model: DetailViewModel) {
         
-            self.titleMovieLabel?.text = model.title
-            self.overviewLabel?.text = model.titleOverview
+        self.titleMovieLabel?.text = model.title
+        self.overviewLabel?.text = model.titleOverview
         
         guard let url = URL(string: "https://www.youtube.com/embed/\(model.videoView.id.videoId)") else { return }
-            self.webView?.load(URLRequest(url: url))
+        self.webView?.load(URLRequest(url: url))
     }
     
     static func intanceFromNib() -> DetailView {

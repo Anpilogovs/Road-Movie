@@ -11,18 +11,17 @@ enum CategoryMovie: Int  {
     case Popular = 0
     case UpComing = 1
     case TopRated = 2
-    
 }
 
 class HomeViewController: UIViewController {
     
-   private let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
+    private let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         setUpTable()
     }
     
@@ -66,7 +65,7 @@ extension HomeViewController: UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-     
+            
         case CategoryMovie.UpComing.rawValue:
             NetworkRequest.shared.getUpComingMovies { result in
                 switch result {
@@ -85,11 +84,9 @@ extension HomeViewController: UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-            
         default:
             return UITableViewCell()
         }
-        
         return cell
     }
     
@@ -101,6 +98,7 @@ extension HomeViewController: UITableViewDataSource {
         return 40
     }
 }
+
 extension HomeViewController: CollectionTableViewCellDelegate {
     func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
         DispatchQueue.main.async { [weak self] in

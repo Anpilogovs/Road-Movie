@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-   
+    
     private var searchController = UISearchController()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
         fetchMovie()
         
     }
-
+    
     private func setUpSearch() {
         searchController = UISearchController(searchResultsController: SearchResultViewController())
         searchController.searchResultsUpdater = self
@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search movie and tv"
         definesPresentationContext = true
-
+        
     }
     
     private func setUpTable() {
@@ -92,7 +92,6 @@ extension SearchViewController: UITableViewDataSource {
         cell.configure(model: model)
         
         return cell
-        
     }
 }
 
@@ -124,14 +123,14 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate {
-
+    
     func updateSearchResults(for searchController: UISearchController) {
         
         let searchBar = searchController.searchBar
         guard  let query = searchBar.text,
                !query.trimmingCharacters(in: .whitespaces).isEmpty,
                query.trimmingCharacters(in: .whitespaces).count >= 2,
-        let searchResult = searchController.searchResultsController as? SearchResultViewController else { return }
+               let searchResult = searchController.searchResultsController as? SearchResultViewController else { return }
         
         searchResult.delegate = self
         
@@ -146,7 +145,7 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultViewControl
                 print(error.localizedDescription)
             }
         }
-   }
+    }
     
     func searchResuldidTapToCell(viewModel: DetailViewModel) {
         

@@ -16,10 +16,8 @@ class CoreDataManager {
         case failedfetchData
         case failedToDeleteData
     }
-    
-    
+
     static let shared = CoreDataManager()
-    
     
     func donwloadTitlewitch(model: Movie, completion: @escaping (Result<Void, Error>) -> Void) {
         
@@ -36,9 +34,8 @@ class CoreDataManager {
         item.poster_path = model.poster_path
         item.vote_count = Int64(model.vote_count)
         item.release_date = model.release_data
-        item.vote_average = model.vote_average
-
-    
+        item.vote_average = model.vote_avera
+        
         do {
                 try context.save()
             completion(.success(()))

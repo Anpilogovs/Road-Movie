@@ -8,7 +8,6 @@
 import UIKit
 class SearchTableViewCell: UITableViewCell {
     
-   
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -19,13 +18,11 @@ class SearchTableViewCell: UITableViewCell {
         return UINib(nibName: "SearchTableViewCell", bundle: nil)
     }
     
- 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-  
+    
     func configure(model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
         

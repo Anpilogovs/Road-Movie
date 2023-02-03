@@ -11,7 +11,6 @@ import Foundation
 struct MoviesResponse: Decodable {
     
     let results: [Movie]
-    
 }
 
 struct Movie: Decodable {

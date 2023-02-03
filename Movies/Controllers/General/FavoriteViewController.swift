@@ -8,15 +8,13 @@
 import UIKit
 
 class FavoriteViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var movies: [MovieTitle] = [MovieTitle]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         setUpTableView()
         fetchLocalStorage()
         NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
@@ -25,12 +23,11 @@ class FavoriteViewController: UIViewController {
     }
     
     private func  setUpTableView() {
-//        self.tableView.delegate = self
+        //        self.tableView.delegate = self
         self.tableView.dataSource = self
         
         tableView.register(SearchTableViewCell.nib(), forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
-    
     
     private func fetchLocalStorage() {
         CoreDataManager.shared.fetchingMovieFromDataBase { [weak self] result in

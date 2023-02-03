@@ -4,7 +4,6 @@
 //
 //  Created by Сергей Анпилогов on 04.11.2022.
 //
-
 import Foundation
 
 struct DetailViewModel {
