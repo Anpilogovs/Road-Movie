@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [MovieTitle] = [MovieTitle]()
+    var movies: [MovieTitleRealm] = [MovieTitleRealm]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class FavoriteViewController: UIViewController {
     }
     
     private func fetchLocalStorage() {
-        CoreDataManager.shared.fetchingMovieFromDataBase { [weak self] result in
+        RealmManager.shared.fetchingMovieFromDataBase { [weak self] result in
             switch result {
             case .success(let movie):
                 self?.movies = movie
@@ -60,10 +61,11 @@ extension FavoriteViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         switch editingStyle {
         case .delete:
-            
-            CoreDataManager.shared.deleteMovie(model: self.movies[indexPath.row]) { [weak self] result in
+            guard indexPath.row < movies.count else { return }
+            RealmManager.shared.deleteMovie(model: self.movies[indexPath.row]) { [weak self] result in
                 switch result {
                 case .success():
                     print("Delete from the databae")

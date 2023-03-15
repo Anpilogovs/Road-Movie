@@ -14,7 +14,7 @@ enum CategoryMovie: Int  {
 }
 
 class HomeViewController: UIViewController {
-    
+        
     private let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -109,4 +109,3 @@ extension HomeViewController: CollectionTableViewCellDelegate {
         }
     }
 }
-

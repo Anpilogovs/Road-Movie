@@ -8,6 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
     @IBOutlet weak var singUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     

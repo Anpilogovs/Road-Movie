@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
         setUpSearch()
         setUpTable()
         fetchMovie()
-        
     }
     
     private func setUpSearch() {
@@ -46,17 +45,7 @@ class SearchViewController: UIViewController {
         case 0:
             fetchMovie()
         case 1:
-            NetworkRequest.shared.getTvShow { result in
-                switch result {
-                case .success(let titles):
-                    self.movies = titles
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+            fetchTvAndShow()
         default:
             break
         }
@@ -75,8 +64,23 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    private func fetchTvAndShow() {
+        NetworkRequest.shared.getTvShow { result in
+            NetworkRequest.shared.getTvShow { result in
+                switch result {
+                case .success(let titles):
+                    self.movies = titles
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }
-
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,6 +125,8 @@ extension SearchViewController: UITableViewDelegate {
         }
     }
 }
+
+//MARK: - UISearchResultsUpdating
 
 extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate {
     

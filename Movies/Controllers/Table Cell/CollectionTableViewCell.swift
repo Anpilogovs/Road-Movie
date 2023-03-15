@@ -16,7 +16,6 @@ class CollectionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,7 +32,7 @@ class CollectionTableViewCell: UITableViewCell {
     }
     
     func donwloadMovie(indexPath: IndexPath)  {
-        CoreDataManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
+        RealmManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
             switch result {
             case .success():
                 NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
@@ -44,6 +43,7 @@ class CollectionTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - UICollectionViewDataSource
 extension CollectionTableViewCell: UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -59,8 +59,10 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
     }
 }
 
+
+//MARK: - UICollectionViewDelegate
+
 extension CollectionTableViewCell: UICollectionViewDelegate {
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -29,28 +28,46 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
     }
-
+    
+    func validateFields() -> String? {
+        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  {
+            
+            return "Please fill in all fields."
+        }
+        return nil
+    }
+    
     @IBAction func loginTapped(_ sender: Any) {
+        let error = validateFields()
         
-//    TODO: Validate Text Fields
+        if error != nil {
+            showError(error!)
+        }
         
-        //Created cleaned version of the next field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        //Singnin in the user
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            
-            if error != nil {
-                //Could't sing in
-                self.errorLabel.text = error?.localizedDescription
-                self.errorLabel.alpha = 1
-            } else {
-                
-              let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constant.Storyboard.homeViewController)
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
-            }
+        let userData = SignUpData.getUserData()
+        if email == userData.email ?? "" && password == userData.password ?? "" {
+            transitionToHome()
+        } else {
+            // Неправильный email или пароль, показываем ошибку
+            showError("Incorrect email or password.")
         }
+    }
+    
+    func showError(_ message: String)  {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
+    
+    func transitionToHome()  {
+        let tabBarController = UITabBarController()
+        guard let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constant.Storyboard.homeViewController) else { return }
+        tabBarController.viewControllers = [homeViewController]
+        tabBarController.selectedIndex = 0
+        tabBarController.modalPresentationStyle  = .fullScreen
+        present(tabBarController, animated: true, completion: nil)
     }
 }

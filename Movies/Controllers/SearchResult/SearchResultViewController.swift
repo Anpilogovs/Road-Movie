@@ -7,23 +7,20 @@
 
 import UIKit
 
-//protocol SearchResultViewControllerDelegate: AnyObject {
-//    func searchResuldidTapToCell(viewModel: DetailViewModel)
-//}
 class SearchResultViewController: UIViewController {
     
-   weak var delegate: SearchResultViewControllerDelegate?
-
+    weak var delegate: SearchResultViewControllerDelegate?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
-     var movies: [Movie] = [Movie]()
+    var movies: [Movie] = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpCollection()
     }
-
+    
     private func  setUpCollection() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -46,7 +43,7 @@ extension SearchResultViewController: UICollectionViewDelegate {
             switch result {
             case .success(let videoElement):
                 print(videoElement)
-                    self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(title: titleName, videoView: videoElement, titleOverview: titleOverview))
+                self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(title: titleName, videoView: videoElement, titleOverview: titleOverview))
             case .failure(let error):
                 print(error.localizedDescription)
             }
