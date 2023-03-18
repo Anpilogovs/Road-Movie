@@ -67,20 +67,19 @@ class SearchViewController: UIViewController {
     
     private func fetchTvAndShow() {
         NetworkRequest.shared.getTvShow { result in
-            NetworkRequest.shared.getTvShow { result in
-                switch result {
-                case .success(let titles):
-                    self.movies = titles
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            switch result {
+            case .success(let titles):
+                self.movies = titles
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
 }
+
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

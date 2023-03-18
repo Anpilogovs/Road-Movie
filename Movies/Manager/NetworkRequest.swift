@@ -34,6 +34,7 @@ class NetworkRequest {
                 complection(.success(results.results))
                 
             } catch {
+                print(error)
                 complection(.failure(error))
             }
         }

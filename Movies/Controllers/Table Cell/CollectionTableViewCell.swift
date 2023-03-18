@@ -67,17 +67,23 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let titleName = movies[indexPath.row]
-        guard let title = titleName.original_name ?? titleName.original_title else { return }
         
-        NetworkRequest.shared.getMovie(query: title + " trailer") { [weak self] result in
+        let title = movies[indexPath.row]
+        guard let titleName = title.original_title ?? title.original_name else { return }
+        print(title)
+        NetworkRequest.shared.getMovie(query: titleName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
-                print(videoElement)
-                let movies = self?.movies[indexPath.row]
-                guard let titleOverview = movies?.overview else { return }
-                let detailModel = DetailViewModel(title: title, videoView:  videoElement, titleOverview: "Overview: \(titleOverview)")
-                guard let selfStrong = self else { return }
+                print(videoElement.id)
+                let title = self?.movies[indexPath.row]
+                guard let titleOverview = title?.overview else {
+                    return
+                }
+                guard let selfStrong = self else {
+                    return
+                    
+                }
+                let detailModel = DetailViewModel(title: titleName, videoView: videoElement, titleOverview: "Overview: \(titleOverview)")
                 self?.delegate?.collectionTableViewDidTapCell(selfStrong, viewModel: detailModel)
             case .failure(let error):
                 print(error.localizedDescription)
