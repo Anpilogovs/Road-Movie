@@ -1,9 +1,3 @@
-//
-//  FavoriteViewController.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 26.10.2022.
-//
 
 import UIKit
 import RealmSwift
@@ -16,6 +10,7 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpTableView()
         fetchLocalStorage()
         NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
@@ -24,10 +19,10 @@ class FavoriteViewController: UIViewController {
     }
     
     private func  setUpTableView() {
-        //        self.tableView.delegate = self
+        self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        tableView.register(SearchTableViewCell.nib(), forCellReuseIdentifier: SearchTableViewCell.identifier)
+        tableView.register(SearchTableViewCell.nib(),
+                           forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
     
     private func fetchLocalStorage() {
@@ -45,6 +40,13 @@ class FavoriteViewController: UIViewController {
     }
 }
 
+extension FavoriteViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+}
+
+
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movies.count
@@ -54,9 +56,11 @@ extension FavoriteViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else { return UITableViewCell() }
         
         let title =  movies[indexPath.row]
-        let model = TitleViewModel(nameMovie: (title.original_title ?? title.original_name) ?? "", urlImage: title.poster_path ?? "")
+        let model = TitleViewModel(nameMovie: (title.original_title ) ,
+                                   urlImage: title.poster_path,
+                                   description: title.overview,
+                                   rating: "\(title.vote_average)")
         cell.configure(model: model)
-        
         return cell
     }
     

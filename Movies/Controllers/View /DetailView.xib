@@ -11,67 +11,78 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleAspectFit" restorationIdentifier="DetailView" id="wdE-P8-Npw" customClass="DetailView" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="408" height="463"/>
+            <rect key="frame" x="0.0" y="0.0" width="469" height="699"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <wkWebView contentMode="scaleToFill" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
-                    <rect key="frame" x="20" y="131.5" width="368" height="200"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-9J-VLR">
+                    <rect key="frame" x="20" y="53" width="45.5" height="31"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="chevron.backward.2" catalog="system"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-ui-T0Q">
+                    <rect key="frame" x="10" y="349.5" width="449" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ga6-bZ-iPY">
+                    <rect key="frame" x="0.0" y="94" width="469" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="pFd-Hj-b9D"/>
+                        <constraint firstAttribute="height" constant="200" id="Djt-fN-xGf"/>
                     </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-TS-018">
+                    <rect key="frame" x="30" y="309" width="405" height="30.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30.5" id="vyu-v2-gzZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <wkWebView contentMode="scaleToFill" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-gm-D4G">
+                    <rect key="frame" x="0.0" y="381" width="469" height="248.5"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-TS-018">
-                    <rect key="frame" x="20" y="351.5" width="368" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPr-iK-uso">
-                    <rect key="frame" x="20" y="401.5" width="368" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8M-9J-VLR">
-                    <rect key="frame" x="20" y="52" width="56" height="62.5"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Back"/>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Pb4-Qi-dcy"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="4pe-TS-018" firstAttribute="top" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="20" id="2cP-JX-49h"/>
-                <constraint firstItem="OPr-iK-uso" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Dre-Uz-AZI"/>
-                <constraint firstAttribute="trailing" secondItem="4pe-TS-018" secondAttribute="trailing" constant="20" id="KFR-My-Rhy"/>
-                <constraint firstItem="u8M-9J-VLR" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" constant="20" id="ThL-if-z3G"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="Tha-jO-Xyd"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="u8M-9J-VLR" secondAttribute="bottom" constant="17" id="dfv-mv-gFS"/>
-                <constraint firstItem="4pe-TS-018" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" constant="20" id="hE4-JV-GEJ"/>
-                <constraint firstAttribute="trailing" secondItem="EDt-gm-D4G" secondAttribute="trailing" constant="20" id="koN-3n-pFX"/>
-                <constraint firstItem="u8M-9J-VLR" firstAttribute="top" secondItem="Pb4-Qi-dcy" secondAttribute="top" constant="8" id="lQi-Y3-2ck"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="centerY" secondItem="wdE-P8-Npw" secondAttribute="centerY" id="nMW-La-wmv"/>
-                <constraint firstAttribute="trailing" secondItem="OPr-iK-uso" secondAttribute="trailing" constant="20" id="tDS-Fb-kuh"/>
-                <constraint firstItem="OPr-iK-uso" firstAttribute="top" secondItem="4pe-TS-018" secondAttribute="bottom" constant="20" id="uvw-bE-2Jt"/>
-                <constraint firstItem="EDt-gm-D4G" firstAttribute="centerX" secondItem="wdE-P8-Npw" secondAttribute="centerX" id="ynP-bf-Vhf"/>
+                <constraint firstItem="Ga6-bZ-iPY" firstAttribute="top" secondItem="u8M-9J-VLR" secondAttribute="bottom" constant="10" id="0Ve-dD-pvP"/>
+                <constraint firstItem="4pe-TS-018" firstAttribute="top" secondItem="Ga6-bZ-iPY" secondAttribute="bottom" constant="15" id="2OR-vz-mH1"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="height" secondItem="wdE-P8-Npw" secondAttribute="height" multiplier="0.295796" constant="41.707207207207205" id="2Rn-9z-yKU"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="top" secondItem="OGA-ui-T0Q" secondAttribute="bottom" constant="10" id="5E1-bo-rzG"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" id="5EE-VH-EN5"/>
+                <constraint firstItem="Pb4-Qi-dcy" firstAttribute="bottom" secondItem="EDt-gm-D4G" secondAttribute="bottom" constant="35.5" id="9KF-vr-Ax8"/>
+                <constraint firstItem="OGA-ui-T0Q" firstAttribute="top" secondItem="4pe-TS-018" secondAttribute="bottom" constant="10" id="ElV-AI-kUE"/>
+                <constraint firstItem="Pb4-Qi-dcy" firstAttribute="trailing" secondItem="4pe-TS-018" secondAttribute="trailing" constant="34" id="I1U-Mg-8wM"/>
+                <constraint firstItem="OGA-ui-T0Q" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" constant="10" id="LFT-hm-5Wn"/>
+                <constraint firstItem="Ga6-bZ-iPY" firstAttribute="top" secondItem="Pb4-Qi-dcy" secondAttribute="top" constant="50" id="XcC-Tu-FTQ"/>
+                <constraint firstItem="4pe-TS-018" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" constant="30" id="cxP-K4-7KR"/>
+                <constraint firstItem="EDt-gm-D4G" firstAttribute="trailing" secondItem="Pb4-Qi-dcy" secondAttribute="trailing" id="i40-bJ-WKd"/>
+                <constraint firstItem="Pb4-Qi-dcy" firstAttribute="trailing" secondItem="Ga6-bZ-iPY" secondAttribute="trailing" id="js6-rN-z9b"/>
+                <constraint firstItem="u8M-9J-VLR" firstAttribute="leading" secondItem="Pb4-Qi-dcy" secondAttribute="leading" constant="20" id="oHw-HJ-LhH"/>
+                <constraint firstItem="Pb4-Qi-dcy" firstAttribute="trailing" secondItem="OGA-ui-T0Q" secondAttribute="trailing" constant="10" id="oyE-RP-Tt9"/>
+                <constraint firstItem="Ga6-bZ-iPY" firstAttribute="leading" secondItem="wdE-P8-Npw" secondAttribute="leading" id="qqQ-iI-WRt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backButton" destination="u8M-9J-VLR" id="TI5-r5-U3J"/>
-                <outlet property="overviewLabel" destination="OPr-iK-uso" id="kbM-W2-Y1Y"/>
+                <outlet property="movieImageView" destination="Ga6-bZ-iPY" id="JnM-gb-JJR"/>
+                <outlet property="overviewLabel" destination="OGA-ui-T0Q" id="bci-1T-gA5"/>
                 <outlet property="titleMovieLabel" destination="4pe-TS-018" id="i5z-RY-9d5"/>
                 <outlet property="webView" destination="EDt-gm-D4G" id="reV-vP-KZm"/>
             </connections>
-            <point key="canvasLocation" x="62.318840579710148" y="108.81696428571428"/>
+            <point key="canvasLocation" x="223.91304347826087" y="289.62053571428572"/>
         </view>
     </objects>
     <resources>
+        <image name="chevron.backward.2" catalog="system" width="128" height="105"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

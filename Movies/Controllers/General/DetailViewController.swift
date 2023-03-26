@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailView.frame = view.bounds
         view.addSubview(detailView)
         
         detailView.backButton.addTarget(self, action: #selector(backOnScreenButton), for: .touchUpInside)

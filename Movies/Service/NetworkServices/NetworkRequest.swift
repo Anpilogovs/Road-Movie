@@ -20,8 +20,11 @@ class NetworkRequest {
     static let shared = NetworkRequest()
     
     private init() {}
+   
     
-    func getTrendingMovies(complection: @escaping (Result<[Movie], Error>) -> Void) {
+//MARK: - Movie
+    
+    func getPopupalMovies(complection: @escaping (Result<[Movie], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.url)/3/movie/popular?api_key=\(Constants.apiKey)") else {return}
         
@@ -76,6 +79,7 @@ class NetworkRequest {
         task.resume()
     }
     
+//MARK: - Search
     func getMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/movie?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -113,8 +117,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-    
-    
+
     func searchMovies(query: String, completion: @escaping (Result<[Movie], Error>) -> Void) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
@@ -123,10 +126,8 @@ class NetworkRequest {
             guard let data = data , error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-                
                 completion(.success(results.results))
                 print(results)
             } catch {
@@ -136,17 +137,17 @@ class NetworkRequest {
         task.resume()
     }
     
+//MARK: - Video
+    
     func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void ) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         guard let url = URL(string: "\(Constants.youTubeUrl)q=\(query)&key=\(Constants.youTubeApi_Key)")  else { return }
-        
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
             guard let data = data , error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(VideoSearchResponse.self, from: data)
                 completion(.success(results.items[0]))

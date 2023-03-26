@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 26.10.2022.
-//
 
 import UIKit
 
@@ -15,8 +9,9 @@ enum CategoryMovie: Int  {
 
 class HomeViewController: UIViewController {
         
-    private let sectionName: [String] = ["Popular", "UpComing", "TopRated"]
-    
+    private let sectionName: [String] = ["Popular",
+                                         "UpComing",
+                                         "Top Rated"]
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,19 +23,8 @@ class HomeViewController: UIViewController {
     private func setUpTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionTableViewCell.identifier)
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionName.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return sectionName[section]
+        tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: CollectionTableViewCell.identifier)
     }
 }
 
@@ -56,8 +40,9 @@ extension HomeViewController: UITableViewDataSource {
         cell.delegate = self
         
         switch indexPath.section  {
+
         case CategoryMovie.Popular.rawValue:
-            NetworkRequest.shared.getTrendingMovies { result in
+            NetworkRequest.shared.getPopupalMovies { result in
                 switch result {
                 case .success(let titles):
                     cell.configure(movie: titles)
@@ -84,6 +69,7 @@ extension HomeViewController: UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
+            
         default:
             return UITableViewCell()
         }
@@ -93,9 +79,20 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionName.count
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionName[section]
     }
 }
 

@@ -24,7 +24,8 @@ class SearchResultViewController: UIViewController {
     private func  setUpCollection() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil),
+                                forCellWithReuseIdentifier: CollectionViewCell.identifier)
     }
 }
 
@@ -37,7 +38,8 @@ extension SearchResultViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let title = movies[indexPath.row]
-        guard let titleName = title.original_title ?? title.original_name, let titleOverview = title.overview else { return }
+        guard let titleName = title.original_title ?? title.original_name,
+              let titleOverview = title.overview else { return }
         
         NetworkRequest.shared.getMovie(query: titleName) { [weak self] result in
             switch result {

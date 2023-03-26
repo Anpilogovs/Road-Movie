@@ -31,7 +31,7 @@ class CollectionTableViewCell: UITableViewCell {
         }
     }
     
-    func donwloadMovie(indexPath: IndexPath)  {
+   private func donwloadMovie(indexPath: IndexPath)  {
         RealmManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
             switch result {
             case .success():
@@ -59,7 +59,6 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
     }
 }
 
-
 //MARK: - UICollectionViewDelegate
 
 extension CollectionTableViewCell: UICollectionViewDelegate {
@@ -81,7 +80,6 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
                 }
                 guard let selfStrong = self else {
                     return
-                    
                 }
                 let detailModel = DetailViewModel(title: titleName, videoView: videoElement, titleOverview: "Overview: \(titleOverview)")
                 self?.delegate?.collectionTableViewDidTapCell(selfStrong, viewModel: detailModel)
@@ -94,12 +92,17 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config  = UIContextMenuConfiguration(identifier: nil,
                                                  previewProvider: nil) {[weak self] _ in
-            let donwloadAction = UIAction(title: "Donwload", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+            let donwloadAction = UIAction(title: "Donwload", subtitle: nil,
+                                          image: nil, identifier: nil,
+                                          discoverabilityTitle: nil,
+                                          state: .off) { _ in
                 self?.donwloadMovie(indexPath: indexPath)
             }
-            return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [donwloadAction])
+            return UIMenu(title: "", image: nil,
+                          identifier: nil,
+                          options: .displayInline,
+                          children: [donwloadAction])
         }
-        
         return config
     }
 }

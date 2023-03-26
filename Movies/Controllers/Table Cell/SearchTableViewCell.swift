@@ -10,6 +10,9 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     
     public var movies: [Movie] = [Movie]()
     
@@ -20,14 +23,15 @@ class SearchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configure(model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
         
         posterImage.sd_setImage(with: url)
-        nameLabel.text = model.nameMovie
+        nameLabel.text = "Name: \(model.nameMovie)"
+        overviewLabel.text = "Overview:\n\(model.description)"
+        ratingLabel.text = "Rating: \(model.rating)"
     }
 }
 
