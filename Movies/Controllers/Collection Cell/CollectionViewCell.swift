@@ -12,10 +12,14 @@ class CollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CollectionViewCell"
     @IBOutlet weak var movieImage: UIImageView!
-    
+    @IBOutlet weak var backView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        backView.addRoundedCornersAndBorder(cornerRadius: 20,
+                                            borderWidth: 4,
+                                            borderColor: UIColor.black)
+
     }
     
     

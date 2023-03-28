@@ -32,6 +32,23 @@ class SearchTableViewCell: UITableViewCell {
         nameLabel.text = "Name: \(model.nameMovie)"
         overviewLabel.text = "Overview:\n\(model.description)"
         ratingLabel.text = "Rating: \(model.rating)"
+        ratingLabel.textColor = color(for: Double(model.rating) ?? 0)
+    }
+    
+    private func color(for rating: Double) -> UIColor {
+        switch rating {
+        case 4.0...7.9:
+            return .orange
+        case 0...3.9:
+            return .red
+        case 8...10:
+            return .green
+        default:
+            return .black
+        }
     }
 }
+
+
+
 
