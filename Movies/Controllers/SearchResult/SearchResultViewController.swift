@@ -44,8 +44,10 @@ extension SearchResultViewController: UICollectionViewDelegate {
         NetworkRequest.shared.getMovie(query: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
-                print(videoElement)
-                self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(title: titleName, videoView: videoElement, titleOverview: titleOverview))
+                self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(urlImage: title.poster_path ?? "",
+                                                                                   title: titleName,
+                                                                                   videoView: videoElement,
+                                                                                   titleOverview: titleOverview))
             case .failure(let error):
                 print(error.localizedDescription)
             }

@@ -6,6 +6,6 @@
 //
 import Foundation
 
-protocol CollectionTableViewCellDelegate: AnyObject {
-    func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel)
+protocol CollectionTableViewCellDetailDelegate: AnyObject {
+    func collectionTableViewCellDidSelectItem(_ cell: CollectionTableViewCell, viewModel: DetailViewModel)
 }

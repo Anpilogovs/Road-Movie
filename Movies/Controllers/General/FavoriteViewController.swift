@@ -13,16 +13,17 @@ class FavoriteViewController: UIViewController {
         
         setUpTableView()
         fetchLocalStorage()
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"),
+                                               object: nil, queue: nil) { _ in
             self.fetchLocalStorage()
         }
     }
     
-    private func  setUpTableView() {
+    private func setUpTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tableView.register(SearchTableViewCell.nib(),
-                           forCellReuseIdentifier: SearchTableViewCell.identifier)
+        tableView.register(FavoriteTableViewCell.nib(),
+                           forCellReuseIdentifier: FavoriteTableViewCell.identifier)
     }
     
     private func fetchLocalStorage() {
@@ -53,14 +54,14 @@ extension FavoriteViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
         
         let title =  movies[indexPath.row]
-        let model = TitleViewModel(nameMovie: (title.original_title ) ,
+        let model = TitleViewModel(nameMovie: title.original_title,
                                    urlImage: title.poster_path,
                                    description: title.overview,
                                    rating: "\(title.vote_average)")
-        cell.configure(model: model)
+        cell.configureFavoriteCell(model: model)
         return cell
     }
     

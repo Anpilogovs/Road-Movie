@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil),
                            forCellReuseIdentifier: CollectionTableViewCell.identifier)
+        tableView.separatorStyle = .none
     }
 }
 
@@ -37,7 +38,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else { return UITableViewCell() }
         
-        cell.delegate = self
+        cell.detailDelegate = self
         
         switch indexPath.section  {
 
@@ -96,8 +97,8 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: CollectionTableViewCellDelegate {
-    func collectionTableViewDidTapCell(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
+extension HomeViewController: CollectionTableViewCellDetailDelegate {
+    func collectionTableViewCellDidSelectItem(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
             controller.detailView.configure(model: viewModel)

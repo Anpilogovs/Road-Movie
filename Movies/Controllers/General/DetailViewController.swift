@@ -6,17 +6,18 @@
 //
 
 import UIKit
-import WebKit
 
 class DetailViewController: UIViewController {
     
     var detailView = DetailView.intanceFromNib()
     
+    @IBOutlet weak var customView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView.frame = view.bounds
-        view.addSubview(detailView)
-        
+        detailView.frame = customView.frame
+        customView.addSubview(detailView)
+       
         detailView.backButton.addTarget(self, action: #selector(backOnScreenButton), for: .touchUpInside)
     }
     

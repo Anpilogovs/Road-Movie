@@ -16,13 +16,7 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backView.addRoundedCornersAndBorder(cornerRadius: 20,
-                                            borderWidth: 4,
-                                            borderColor: UIColor.black)
-
     }
-    
-    
     func configure(model: String) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
         

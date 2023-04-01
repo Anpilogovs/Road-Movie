@@ -9,7 +9,8 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell {
     
-    weak var delegate: CollectionTableViewCellDelegate?
+   
+    weak var detailDelegate: CollectionTableViewCellDetailDelegate?
     
     static let identifier = "CollectionTableViewCell"
     private var movies: [Movie] = [Movie]()
@@ -18,7 +19,10 @@ class CollectionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupView()
+    }
+    
+    private func setupView() {
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -53,8 +57,8 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
         
         guard let posterPath = movies[indexPath.row].poster_path else  { return  UICollectionViewCell() }
-        
         cell.configure(model: posterPath)
+        cell.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 2, borderColor: .black)
         return cell
     }
 }
@@ -65,8 +69,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
-        
+
         let title = movies[indexPath.row]
         guard let titleName = title.original_title ?? title.original_name else { return }
         print(title)
@@ -81,8 +84,8 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
                 guard let selfStrong = self else {
                     return
                 }
-                let detailModel = DetailViewModel(title: titleName, videoView: videoElement, titleOverview: "Overview: \(titleOverview)")
-                self?.delegate?.collectionTableViewDidTapCell(selfStrong, viewModel: detailModel)
+                let detailModel = DetailViewModel(urlImage: title?.poster_path ?? "", title: titleName, videoView: videoElement, titleOverview: "Overview: \(titleOverview)")
+                self?.detailDelegate?.collectionTableViewCellDidSelectItem(selfStrong, viewModel: detailModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }

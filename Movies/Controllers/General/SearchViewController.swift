@@ -31,6 +31,7 @@ class SearchViewController: UIViewController {
     private func setUpTable() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        tableView.separatorStyle = .none
         tableView.register(SearchTableViewCell.nib(), forCellReuseIdentifier: SearchTableViewCell.identifier)
     }
     
@@ -81,6 +82,10 @@ extension SearchViewController: UITableViewDataSource {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -92,6 +97,7 @@ extension SearchViewController: UITableViewDataSource {
         let title =  movies[indexPath.row]
         let model = TitleViewModel(nameMovie: (title.original_title ?? title.original_name) ?? "", urlImage: title.poster_path ?? "", description: title.overview ?? "", rating: "\(title.vote_average)")
         cell.configure(model: model)
+        
         return cell
     }
 }
@@ -112,10 +118,11 @@ extension SearchViewController: UITableViewDelegate {
                     let movies = self?.movies[indexPath.row]
                     guard let titleOverview = movies?.overview else { return }
                     guard  let controller =  self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-                    let detailModel = DetailViewModel(title: titleName, videoView:  videoElement, titleOverview: titleOverview)
+                    let detailModel = DetailViewModel(urlImage: movies?.poster_path ?? "",
+                                                      title: titleName,
+                                                      videoView:  videoElement, 
+                                                      titleOverview: titleOverview)
                     controller.detailView.configure(model: detailModel)
-                    let title = TitleViewModel(nameMovie: "", urlImage: movies?.poster_path ?? "", description: "", rating: "")
-                    controller.detailView.configureImage(model: title)
                     self?.present(controller, animated: true)
                 }
             case .failure(let error):

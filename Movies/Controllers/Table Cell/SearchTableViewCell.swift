@@ -12,9 +12,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    
-    
-    public var movies: [Movie] = [Movie]()
+    @IBOutlet weak var customView: UIView!
     
     static let identifier = "SearchTableViewCell"
     static func nib() -> UINib {
@@ -23,6 +21,10 @@ class SearchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        customView.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
+        posterImage.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
     }
     
     func configure(model: TitleViewModel) {

@@ -21,15 +21,13 @@ class DetailView: UIView {
         titleMovieLabel?.text = model.title
         overviewLabel?.text = model.titleOverview
         
-        guard let url = URL(string: "https://www.youtube.com/embed/\(model.videoView.id.videoId)") else { return }
-        self.webView?.load(URLRequest(url: url))
+        guard let urlVideo = URL(string: "https://www.youtube.com/embed/\(model.videoView.id.videoId)"),
+        let urlImage = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
+        self.webView?.load(URLRequest(url: urlVideo))
+        movieImageView.sd_setImage(with: urlImage)
     }
     
-    func configureImage(model: TitleViewModel) {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
-        movieImageView.sd_setImage(with: url)
-    }
-    
+
     static func intanceFromNib() -> DetailView {
         return UINib(nibName: "DetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DetailView
     }
