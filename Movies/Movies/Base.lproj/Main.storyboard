@@ -146,68 +146,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="s6G-9u-sue" kind="relationship" relationship="viewControllers" id="AU4-kI-hph"/>
-                        <segue destination="SjB-R6-efz" kind="relationship" relationship="viewControllers" id="f5w-vI-nuj"/>
-                        <segue destination="eC2-Bh-432" kind="relationship" relationship="viewControllers" id="QgJ-b8-KLh"/>
+                        <segue destination="lFf-2v-uZM" kind="relationship" relationship="viewControllers" id="wCf-3v-rzb"/>
+                        <segue destination="SjB-R6-efz" kind="relationship" relationship="viewControllers" id="nmX-7O-MUI"/>
+                        <segue destination="eC2-Bh-432" kind="relationship" relationship="viewControllers" id="IQl-Dy-Zca"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJy-U4-ePr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809" y="185"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Movie-->
         <scene sceneID="Cwb-16-wb7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lci-zS-hrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="lFf-2v-uZM" customClass="HomeViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nET-GB-l1N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-6M-vPn">
-                                <rect key="frame" x="0.0" y="118" width="414" height="695"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4l7-SO-88s"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hxQ-6M-vPn" firstAttribute="top" secondItem="4l7-SO-88s" secondAttribute="top" constant="30" id="4DA-3f-Fy3"/>
                             <constraint firstItem="hxQ-6M-vPn" firstAttribute="leading" secondItem="4l7-SO-88s" secondAttribute="leading" id="BBy-qk-8ch"/>
                             <constraint firstItem="4l7-SO-88s" firstAttribute="bottom" secondItem="hxQ-6M-vPn" secondAttribute="bottom" id="db0-eD-ZVZ"/>
                             <constraint firstItem="4l7-SO-88s" firstAttribute="trailing" secondItem="hxQ-6M-vPn" secondAttribute="trailing" id="hQp-Ac-JGq"/>
+                            <constraint firstItem="hxQ-6M-vPn" firstAttribute="top" secondItem="4l7-SO-88s" secondAttribute="top" id="k6F-NF-Bzu"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Movie" image="movie-2" id="zn7-Cg-WX2"/>
                     <navigationItem key="navigationItem" id="e0h-rR-ItB"/>
                     <connections>
                         <outlet property="tableView" destination="hxQ-6M-vPn" id="RJx-OY-CH1"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lci-zS-hrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2689.8550724637685" y="408.48214285714283"/>
-        </scene>
-        <!--Movie-->
-        <scene sceneID="Wkm-CK-OQ3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s6G-9u-sue" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movie" image="movie-2" id="ZfQ-v3-u9q">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wp3-LT-MyV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lFf-2v-uZM" kind="relationship" relationship="rootViewController" id="Yjh-HN-AIB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xEk-En-1Am" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1779.7101449275365" y="408.48214285714283"/>
+            <point key="canvasLocation" x="1779.7101449275365" y="369.64285714285711"/>
         </scene>
     </scenes>
     <resources>

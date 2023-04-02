@@ -6,7 +6,7 @@ class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [MovieTitleRealm] = [MovieTitleRealm]()
+    var movies: [MovieTitleRealm] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,12 @@ class FavoriteViewController: UIViewController {
     }
     
     private func fetchLocalStorage() {
-        RealmManager.shared.fetchingMovieFromDataBase { [weak self] result in
+        RealmManager.shared.fetchingMovieFromDataBase { [unowned self] result in
             switch result {
             case .success(let movie):
-                self?.movies = movie
+                self.movies = movie
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -70,14 +70,14 @@ extension FavoriteViewController: UITableViewDataSource {
         switch editingStyle {
         case .delete:
             guard indexPath.row < movies.count else { return }
-            RealmManager.shared.deleteMovie(model: self.movies[indexPath.row]) { [weak self] result in
+            RealmManager.shared.deleteMovie(model: self.movies[indexPath.row]) { [unowned self] result in
                 switch result {
                 case .success():
                     print("Delete from the databae")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-                self?.movies.remove(at: indexPath.row)
+                self.movies.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         default:

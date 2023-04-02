@@ -9,14 +9,17 @@ enum CategoryMovie: Int  {
 
 class HomeViewController: UIViewController {
         
-    private let sectionName: [String] = ["Popular",
-                                         "UpComing",
-                                         "Top Rated"]
+   
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainCustomView: UIView!
     
+    private let sectionName: [String] = ["Popular", "UpComing", "Top Rated"]
+    private let mainTitleView = TitleView.intanceFromNib()
+    private var movie: Movie?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureHeaderImageView()
         setUpTable()
     }
     
@@ -26,6 +29,24 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil),
                            forCellReuseIdentifier: CollectionTableViewCell.identifier)
         tableView.separatorStyle = .none
+        tableView.tableHeaderView = mainTitleView
+    }
+    
+    private func configureHeaderImageView() {
+        
+        NetworkRequest.shared.getPopupalMovies { [weak self] result in
+            switch result {
+            case .success(let title):
+                let selected = title.randomElement()
+                self?.movie = selected
+                self?.mainTitleView.configure(model: TitleViewModel(nameMovie: "",
+                                                                    urlImage: self?.movie?.poster_path ?? "",
+                                                                    description: "",
+                                                                    rating: ""))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -37,7 +58,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else { return UITableViewCell() }
-        
+    
         cell.detailDelegate = self
         
         switch indexPath.section  {
@@ -47,6 +68,7 @@ extension HomeViewController: UITableViewDataSource {
                 switch result {
                 case .success(let titles):
                     cell.configure(movie: titles)
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -101,7 +123,7 @@ extension HomeViewController: CollectionTableViewCellDetailDelegate {
     func collectionTableViewCellDidSelectItem(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let controller = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-            controller.detailView.configure(model: viewModel)
+            controller.detailView.configureDetail(model: viewModel)
             controller.modalPresentationStyle = .fullScreen
             self?.present(controller, animated: true)
         }

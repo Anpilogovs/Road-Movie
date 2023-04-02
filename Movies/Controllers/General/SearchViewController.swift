@@ -3,11 +3,13 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    private var searchController = UISearchController()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
     
-    public var movies: [Movie] = [Movie]()
+    private lazy var searchController = UISearchController()
+    static let searchStoryboardId = "DetailViewController"
+    public var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,6 @@ class SearchViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search movie and tv"
         definesPresentationContext = true
-        
     }
     
     private func setUpTable() {
@@ -117,12 +118,12 @@ extension SearchViewController: UITableViewDelegate {
                 DispatchQueue.main.async {
                     let movies = self?.movies[indexPath.row]
                     guard let titleOverview = movies?.overview else { return }
-                    guard  let controller =  self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+                    guard  let controller =  self?.storyboard?.instantiateViewController(withIdentifier: SearchViewController.searchStoryboardId) as? DetailViewController else { return }
                     let detailModel = DetailViewModel(urlImage: movies?.poster_path ?? "",
                                                       title: titleName,
                                                       videoView:  videoElement, 
-                                                      titleOverview: titleOverview)
-                    controller.detailView.configure(model: detailModel)
+                                                      titleOverview: titleOverview, rating: movies?.vote_average ?? 0)
+                    controller.detailView.configureDetail(model: detailModel)
                     self?.present(controller, animated: true)
                 }
             case .failure(let error):
@@ -162,8 +163,8 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultViewControl
     func searchResuldidTapToCell(viewModel: DetailViewModel) {
         
         DispatchQueue.main.async { [weak self] in
-            guard let controller =  self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-            controller.detailView.configure(model: viewModel)
+            guard let controller =  self?.storyboard?.instantiateViewController(withIdentifier: SearchViewController.searchStoryboardId) as? DetailViewController else { return }
+            controller.detailView.configureDetail(model: viewModel)
             self?.present(controller, animated: true)
         }
     }

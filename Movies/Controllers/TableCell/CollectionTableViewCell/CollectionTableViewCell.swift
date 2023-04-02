@@ -9,11 +9,10 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell {
     
-   
     weak var detailDelegate: CollectionTableViewCellDetailDelegate?
     
     static let identifier = "CollectionTableViewCell"
-    private var movies: [Movie] = [Movie]()
+    private var movies: [Movie] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -28,7 +27,7 @@ class CollectionTableViewCell: UITableViewCell {
         collectionView.delegate = self
     }
     
-    func configure(movie: [Movie]) {
+     func configure(movie: [Movie]) {
         self.movies = movie
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
@@ -48,6 +47,7 @@ class CollectionTableViewCell: UITableViewCell {
 }
 
 //MARK: - UICollectionViewDataSource
+
 extension CollectionTableViewCell: UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -56,8 +56,9 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
         
+        
         guard let posterPath = movies[indexPath.row].poster_path else  { return  UICollectionViewCell() }
-        cell.configure(model: posterPath)
+        cell.configureCollectionCell(model: posterPath)
         cell.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 2, borderColor: .black)
         return cell
     }
@@ -84,8 +85,13 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
                 guard let selfStrong = self else {
                     return
                 }
-                let detailModel = DetailViewModel(urlImage: title?.poster_path ?? "", title: titleName, videoView: videoElement, titleOverview: "Overview: \(titleOverview)")
-                self?.detailDelegate?.collectionTableViewCellDidSelectItem(selfStrong, viewModel: detailModel)
+                let detailModel = DetailViewModel(urlImage: title?.poster_path ?? "",
+                                                  title: titleName,
+                                                  videoView: videoElement,
+                                                  titleOverview: "Overview: \(titleOverview)",
+                                                  rating: title?.vote_average ?? 10)
+                self?.detailDelegate?.collectionTableViewCellDidSelectItem(selfStrong,
+                                                                           viewModel: detailModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -106,6 +112,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
                           options: .displayInline,
                           children: [donwloadAction])
         }
+        
         return config
     }
 }
