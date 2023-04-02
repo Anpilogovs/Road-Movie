@@ -47,7 +47,7 @@ extension SearchResultViewController: UICollectionViewDelegate {
                 self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(urlImage: title.poster_path ?? "",
                                                                                    title: titleName,
                                                                                    videoView: videoElement,
-                                                                                   titleOverview: titleOverview))
+                                                                                   titleOverview: titleOverview, rating: title.vote_average))
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -61,7 +61,7 @@ extension SearchResultViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell  else { return UICollectionViewCell() }
         
         let coverMove = movies[indexPath.row]
-        cell.configure(model: coverMove.poster_path ?? "")
+        cell.configureCollectionCell(model: coverMove.poster_path ?? "")
         return cell
     }
 }

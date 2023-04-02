@@ -11,6 +11,7 @@ struct DetailViewModel {
     let title: String
     let videoView: VideoElement
     let titleOverview: String
+    let rating: Double
 }
 
 

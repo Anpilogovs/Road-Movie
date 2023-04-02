@@ -10,7 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var detailView = DetailView.intanceFromNib()
-    
+        
     @IBOutlet weak var customView: UIView!
     
     override func viewDidLoad() {

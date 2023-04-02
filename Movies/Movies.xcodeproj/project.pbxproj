@@ -12,11 +12,12 @@
 		F309E310293C97CC00EAD123 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */; };
 		F309E311293C97CC00EAD123 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */; };
 		F30FC69129D38CD900F5D45F /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30FC69029D38CD900F5D45F /* UIView + Extensions.swift */; };
-		F31E7AAE29CDFCAB0046633B /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F31E7AAD29CDFCAB0046633B /* TitleView.xib */; };
-		F31E7AB029CDFCBD0046633B /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31E7AAF29CDFCBD0046633B /* TitleView.swift */; };
 		F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5229150CCF006F66CA /* DetailViewController.swift */; };
 		F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D57291515D1006F66CA /* DetailViewModel.swift */; };
 		F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36D3D5929153EC5006F66CA /* DetailView.swift */; };
+		F398F1AE29D98085001C67DB /* UIImageView + Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398F1AD29D98085001C67DB /* UIImageView + Extenstions.swift */; };
+		F398F1B029D9AC9E001C67DB /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F398F1AF29D9AC9E001C67DB /* TitleView.xib */; };
+		F398F1B229D9ACCA001C67DB /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F398F1B129D9ACCA001C67DB /* TitleView.swift */; };
 		F3A5119A290D232F003D3307 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F3A51199290D232F003D3307 /* SDWebImage */; };
 		F3A5119C290D232F003D3307 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A5119B290D232F003D3307 /* SDWebImageMapKit */; };
 		F3A511A0290ED1D4003D3307 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */; };
@@ -55,11 +56,12 @@
 		F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		F30FC69029D38CD900F5D45F /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
-		F31E7AAD29CDFCAB0046633B /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
-		F31E7AAF29CDFCBD0046633B /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		F36D3D5229150CCF006F66CA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F36D3D57291515D1006F66CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F36D3D5929153EC5006F66CA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F398F1AD29D98085001C67DB /* UIImageView + Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extenstions.swift"; sourceTree = "<group>"; };
+		F398F1AF29D9AC9E001C67DB /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		F398F1B129D9ACCA001C67DB /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		F3A511A2290EE7D7003D3307 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
@@ -130,19 +132,11 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		F30FC68F29D3820100F5D45F /* Title */ = {
-			isa = PBXGroup;
-			children = (
-				F31E7AAD29CDFCAB0046633B /* TitleView.xib */,
-				F31E7AAF29CDFCBD0046633B /* TitleView.swift */,
-			);
-			path = Title;
-			sourceTree = "<group>";
-		};
 		F30FC69229D38CE400F5D45F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				F30FC69029D38CD900F5D45F /* UIView + Extensions.swift */,
+				F398F1AD29D98085001C67DB /* UIImageView + Extenstions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +167,42 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F398F1AA29D97C17001C67DB /* CollectionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3BEF2522909AEB600BFB525 /* CollectionTableViewCell.swift */,
+				F3BEF2532909AEB600BFB525 /* CollectionTableViewCell.xib */,
+			);
+			path = CollectionTableViewCell;
+			sourceTree = "<group>";
+		};
+		F398F1AB29D97C24001C67DB /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */,
+				F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */,
+			);
+			path = SearchTableViewCell;
+			sourceTree = "<group>";
+		};
+		F398F1AC29D97C30001C67DB /* FavoriteTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */,
+				F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */,
+			);
+			path = FavoriteTableViewCell;
+			sourceTree = "<group>";
+		};
+		F398F1B329D9ACD0001C67DB /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				F398F1AF29D9AC9E001C67DB /* TitleView.xib */,
+				F398F1B129D9ACCA001C67DB /* TitleView.swift */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
 		F3A5119D290D2712003D3307 /* Collection Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				F30FC68E29D381F300F5D45F /* Detail */,
-				F30FC68F29D3820100F5D45F /* Title */,
+				F398F1B329D9ACD0001C67DB /* Title */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,7 +276,7 @@
 				F3D5267729201EFD001EFC42 /* SearchResult */,
 				F3ACEEF1291A71CF0098BF91 /* Views */,
 				F3A5119D290D2712003D3307 /* Collection Cell */,
-				F3BEF24D2909A7CC00BFB525 /* Table Cell */,
+				F3BEF24D2909A7CC00BFB525 /* TableCell */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,17 +299,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F3BEF24D2909A7CC00BFB525 /* Table Cell */ = {
+		F3BEF24D2909A7CC00BFB525 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				F3BEF2522909AEB600BFB525 /* CollectionTableViewCell.swift */,
-				F3BEF2532909AEB600BFB525 /* CollectionTableViewCell.xib */,
-				F3A5119E290ED1D4003D3307 /* SearchTableViewCell.swift */,
-				F3A5119F290ED1D4003D3307 /* SearchTableViewCell.xib */,
-				F309E30E293C97CC00EAD123 /* FavoriteTableViewCell.swift */,
-				F309E30F293C97CC00EAD123 /* FavoriteTableViewCell.xib */,
+				F398F1AA29D97C17001C67DB /* CollectionTableViewCell */,
+				F398F1AB29D97C24001C67DB /* SearchTableViewCell */,
+				F398F1AC29D97C30001C67DB /* FavoriteTableViewCell */,
 			);
-			path = "Table Cell";
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		F3D5267729201EFD001EFC42 /* SearchResult */ = {
@@ -373,12 +400,12 @@
 				F3BEF2552909AEB600BFB525 /* CollectionTableViewCell.xib in Resources */,
 				F3BEF2512909AE3700BFB525 /* CollectionViewCell.xib in Resources */,
 				F3BEF23F2909A64300BFB525 /* LaunchScreen.storyboard in Resources */,
-				F31E7AAE29CDFCAB0046633B /* TitleView.xib in Resources */,
 				F3D52676291EC7C3001EFC42 /* SearchResultViewController.xib in Resources */,
 				F3BEF23C2909A64300BFB525 /* Assets.xcassets in Resources */,
 				F309E311293C97CC00EAD123 /* FavoriteTableViewCell.xib in Resources */,
 				F3BEF23A2909A63F00BFB525 /* Main.storyboard in Resources */,
 				F3A511A1290ED1D4003D3307 /* SearchTableViewCell.xib in Resources */,
+				F398F1B029D9AC9E001C67DB /* TitleView.xib in Resources */,
 				F3ACEEED291901D70098BF91 /* DetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +464,7 @@
 				F3A5124029143E71003D3307 /* VideoSearchResponse.swift in Sources */,
 				F3BEF2472909A74500BFB525 /* SearchViewController.swift in Sources */,
 				F3BEF2542909AEB600BFB525 /* CollectionTableViewCell.swift in Sources */,
+				F398F1AE29D98085001C67DB /* UIImageView + Extenstions.swift in Sources */,
 				F3BEF2352909A63F00BFB525 /* SceneDelegate.swift in Sources */,
 				F3BEF25B2909B37400BFB525 /* TMDBResponse.swift in Sources */,
 				F3BA70F029C1F76100C206F6 /* RealmModel.swift in Sources */,
@@ -447,11 +475,11 @@
 				F30FC69129D38CD900F5D45F /* UIView + Extensions.swift in Sources */,
 				F3A511A3290EE7D7003D3307 /* TitleViewModel.swift in Sources */,
 				F36D3D58291515D1006F66CA /* DetailViewModel.swift in Sources */,
-				F31E7AB029CDFCBD0046633B /* TitleView.swift in Sources */,
 				F36D3D5A29153EC5006F66CA /* DetailView.swift in Sources */,
 				F3D5267A29228D87001EFC42 /* SearchResultProtocol.swift in Sources */,
 				F3D5267C29228DF1001EFC42 /* CollectionTableViewProtocol.swift in Sources */,
 				F3D52675291EC7C3001EFC42 /* SearchResultViewController.swift in Sources */,
+				F398F1B229D9ACCA001C67DB /* TitleView.swift in Sources */,
 				F309E30D293BA58100EAD123 /* RealmManager.swift in Sources */,
 				F309E310293C97CC00EAD123 /* FavoriteTableViewCell.swift in Sources */,
 				F36D3D5429150CCF006F66CA /* DetailViewController.swift in Sources */,

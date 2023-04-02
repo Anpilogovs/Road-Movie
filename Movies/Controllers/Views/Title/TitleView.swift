@@ -1,22 +1,29 @@
 //
-//  TitleView.swift
+//  mainMovieImageView.swift
 //  Movies
 //
-//  Created by Сергей Анпилогов on 24.03.2023.
+//  Created by Сергей Анпилогов on 02.04.2023.
 //
 
 import UIKit
+import SDWebImage
 
-class TitleView: UIView {
+
+final class TitleView: UIView {
     
-    @IBOutlet weak var titleImageView: UIImageView!
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var infoButton: UIButton!
     
-    func configureImage(model: TitleViewModel) {
+    func configure(model: TitleViewModel) {
+        
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.urlImage)") else { return }
-        titleImageView.sd_setImage(with: url)
+        
+        movieImageView.sd_setImage(with: url)
     }
     
     static func intanceFromNib() -> TitleView {
-        return UINib(nibName: "DetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TitleView
+        return UINib(nibName: "TitleView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TitleView
     }
 }
+
+

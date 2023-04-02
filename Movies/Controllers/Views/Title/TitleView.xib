@@ -8,32 +8,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Movies" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TitleView" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="275"/>
+            <rect key="frame" x="0.0" y="0.0" width="477" height="348"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-gk-USk">
-                    <rect key="frame" x="0.0" y="44" width="429" height="231"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Tn2-gk-USk" secondAttribute="height" multiplier="13:7" id="Ple-PJ-iKj"/>
-                    </constraints>
+                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qH5-7i-RjX">
+                    <rect key="frame" x="0.0" y="44" width="477" height="270"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73Q-3C-4ag">
+                    <rect key="frame" x="30" y="263" width="67" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Tn2-gk-USk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="FLC-b7-g1n"/>
-                <constraint firstItem="Tn2-gk-USk" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RDU-Uk-56w"/>
-                <constraint firstAttribute="bottom" secondItem="Tn2-gk-USk" secondAttribute="bottom" id="cIF-pl-zem"/>
-                <constraint firstItem="Tn2-gk-USk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="n5J-ez-fjg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qH5-7i-RjX" secondAttribute="bottom" id="FvN-J0-gDI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qH5-7i-RjX" secondAttribute="trailing" id="HUq-KB-JWQ"/>
+                <constraint firstItem="73Q-3C-4ag" firstAttribute="leading" secondItem="qH5-7i-RjX" secondAttribute="leading" constant="30" id="Lc6-bC-HSf"/>
+                <constraint firstItem="73Q-3C-4ag" firstAttribute="bottom" secondItem="qH5-7i-RjX" secondAttribute="bottom" constant="-20" id="bd3-uk-CZx"/>
+                <constraint firstItem="qH5-7i-RjX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mAN-zd-5M6"/>
+                <constraint firstItem="qH5-7i-RjX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mKH-VZ-vMc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="titleImageView" destination="Tn2-gk-USk" id="R7s-RV-JBZ"/>
+                <outlet property="infoButton" destination="73Q-3C-4ag" id="wwZ-46-IgF"/>
+                <outlet property="movieImageView" destination="qH5-7i-RjX" id="96O-y3-tAB"/>
             </connections>
-            <point key="canvasLocation" x="148.55072463768118" y="-126.22767857142857"/>
+            <point key="canvasLocation" x="183.33333333333334" y="-119.86607142857142"/>
         </view>
     </objects>
     <resources>

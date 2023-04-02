@@ -17,7 +17,9 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-    func configure(model: String) {
+    
+    func configureCollectionCell(model: String) {
+        
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
         
         movieImage.sd_setImage(with: url)
