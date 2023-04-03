@@ -1,4 +1,3 @@
-
 import UIKit
 
 enum CategoryMovie: Int  {
@@ -8,11 +7,10 @@ enum CategoryMovie: Int  {
 }
 
 class HomeViewController: UIViewController {
-        
-   
+    //MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainCustomView: UIView!
-    
+    //MARK: - var/let
     private let sectionName: [String] = ["Popular", "UpComing", "Top Rated"]
     private let mainTitleView = TitleView.intanceFromNib()
     private var movie: Movie?
@@ -23,12 +21,19 @@ class HomeViewController: UIViewController {
         setUpTable()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mainTitleView.movieImageView.addShadow()
+    }
+
     private func setUpTable() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CollectionTableViewCell", bundle: nil),
                            forCellReuseIdentifier: CollectionTableViewCell.identifier)
         tableView.separatorStyle = .none
+        tableView.bounces = false
+        mainTitleView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 500)
         tableView.tableHeaderView = mainTitleView
     }
     
@@ -49,7 +54,7 @@ class HomeViewController: UIViewController {
         }
     }
 }
-
+//MARK: UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,22 +108,26 @@ extension HomeViewController: UITableViewDataSource {
         return 200
     }
 }
-
+//MARK: UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionName.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionName[section]
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        headerView.backgroundColor = .white
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableView.frame.width, height: 30))
+        label.text = sectionName[section]
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.textColor = .black
+        headerView.addSubview(label)
+        
+        return headerView
     }
 }
-
+//MARK: CollectionTableViewCellDetailDelegate
 extension HomeViewController: CollectionTableViewCellDetailDelegate {
     func collectionTableViewCellDidSelectItem(_ cell: CollectionTableViewCell, viewModel: DetailViewModel) {
         DispatchQueue.main.async { [weak self] in

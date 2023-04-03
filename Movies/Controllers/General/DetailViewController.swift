@@ -1,17 +1,9 @@
-//
-//  DetailViewController.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 04.11.2022.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {
     
-    var detailView = DetailView.intanceFromNib()
-        
     @IBOutlet weak var customView: UIView!
+    var detailView = DetailView.intanceFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()

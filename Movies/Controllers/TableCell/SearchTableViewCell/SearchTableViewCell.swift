@@ -1,10 +1,3 @@
-//
-//  SearchTableViewCell.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 30.10.2022.
-//
-
 import UIKit
 class SearchTableViewCell: UITableViewCell {
     
@@ -21,8 +14,6 @@ class SearchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
         customView.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
         posterImage.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
     }

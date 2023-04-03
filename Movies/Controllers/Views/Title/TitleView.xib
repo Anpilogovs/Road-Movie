@@ -10,27 +10,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Movies" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TitleView" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="477" height="348"/>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="TitleView" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="543"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qH5-7i-RjX">
-                    <rect key="frame" x="0.0" y="44" width="477" height="270"/>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qH5-7i-RjX">
+                    <rect key="frame" x="0.0" y="44" width="295" height="500"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="500" id="ANZ-Mq-n2W"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73Q-3C-4ag">
-                    <rect key="frame" x="30" y="263" width="67" height="31"/>
+                    <rect key="frame" x="30" y="501" width="48.5" height="31"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Info"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qH5-7i-RjX" secondAttribute="bottom" id="FvN-J0-gDI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qH5-7i-RjX" secondAttribute="trailing" id="HUq-KB-JWQ"/>
-                <constraint firstItem="73Q-3C-4ag" firstAttribute="leading" secondItem="qH5-7i-RjX" secondAttribute="leading" constant="30" id="Lc6-bC-HSf"/>
-                <constraint firstItem="73Q-3C-4ag" firstAttribute="bottom" secondItem="qH5-7i-RjX" secondAttribute="bottom" constant="-20" id="bd3-uk-CZx"/>
-                <constraint firstItem="qH5-7i-RjX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mAN-zd-5M6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="73Q-3C-4ag" secondAttribute="bottom" constant="11" id="TJ7-Tq-Jwd"/>
+                <constraint firstItem="qH5-7i-RjX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UXP-Xz-eLb"/>
+                <constraint firstItem="73Q-3C-4ag" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="a7O-nq-RLo"/>
                 <constraint firstItem="qH5-7i-RjX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mKH-VZ-vMc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -38,7 +41,7 @@
                 <outlet property="infoButton" destination="73Q-3C-4ag" id="wwZ-46-IgF"/>
                 <outlet property="movieImageView" destination="qH5-7i-RjX" id="96O-y3-tAB"/>
             </connections>
-            <point key="canvasLocation" x="183.33333333333334" y="-119.86607142857142"/>
+            <point key="canvasLocation" x="51.449275362318843" y="-209.93303571428569"/>
         </view>
     </objects>
     <resources>

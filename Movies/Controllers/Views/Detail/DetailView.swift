@@ -1,10 +1,3 @@
-//
-//  DetailView.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 04.11.2022.
-//
-
 import UIKit
 import WebKit
 
@@ -23,7 +16,6 @@ final class DetailView: UIView {
         titleMovieLabel?.text = model.title
         overviewLabel?.text = model.titleOverview
         ratingLabel.text = "\(model.rating)/10"
-        
         
         movieImageView.setImage(with: "https://image.tmdb.org/t/p/w500/\(model.urlImage)", alpha: 0.7)
         upperImageView.setImage(with: "https://image.tmdb.org/t/p/w500/\(model.urlImage)")

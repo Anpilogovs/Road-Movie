@@ -8,13 +8,12 @@
 import UIKit
 
 class CollectionTableViewCell: UITableViewCell {
-    
+//    MARK: - @IBOutlet
+    @IBOutlet weak var collectionView: UICollectionView!
+//    MARK: - var/let
     weak var detailDelegate: CollectionTableViewCellDetailDelegate?
-    
     static let identifier = "CollectionTableViewCell"
     private var movies: [Movie] = []
-    
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +46,6 @@ class CollectionTableViewCell: UITableViewCell {
 }
 
 //MARK: - UICollectionViewDataSource
-
 extension CollectionTableViewCell: UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -65,7 +63,6 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
 }
 
 //MARK: - UICollectionViewDelegate
-
 extension CollectionTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

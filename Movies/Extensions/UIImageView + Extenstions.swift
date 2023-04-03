@@ -1,12 +1,4 @@
-//
-//  UIImageView + Extenstions.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 02.04.2023.
-//
-
 import UIKit
-
 
 extension UIImageView {
     func setImage(with url: String, alpha: CGFloat? = nil) {
@@ -18,15 +10,24 @@ extension UIImageView {
                 overlayView.backgroundColor = UIColor.black.withAlphaComponent(alpha ?? 0)
                 overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 strongSelf.addSubview(overlayView)
-//                strongSelf.bringSubviewToFront(strongSelf.subviews[0])
             }
         }
     }
 }
 
-
-
-
+extension UIImageView {
+    func addShadow() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(1).cgColor]
+        gradientLayer.locations = [0, 1, 2]
+        
+        let shadowLayer = CALayer()
+        shadowLayer.frame = bounds
+        shadowLayer.addSublayer(gradientLayer)
+        layer.addSublayer(shadowLayer)
+    }
+}
 
 //extension UIImageView {
 //    func setImage(with url: String, blurRadius: CGFloat? = nil) {

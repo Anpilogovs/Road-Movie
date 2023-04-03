@@ -1,19 +1,17 @@
-
 import UIKit
 
 class SearchViewController: UIViewController {
-    
-    
+//  MARK: - IBOutler
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
     
+//  MARK: - var/let
     private lazy var searchController = UISearchController()
     static let searchStoryboardId = "DetailViewController"
     public var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpSearch()
         setUpTable()
         fetchMovie()
@@ -37,7 +35,6 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func handelSegmentChange(_ sender: UISegmentedControl) {
-        
         switch sender.selectedSegmentIndex {
         case 0:
             fetchMovie()
@@ -76,7 +73,7 @@ class SearchViewController: UIViewController {
         }
     }
 }
-
+//MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -102,7 +99,7 @@ extension SearchViewController: UITableViewDataSource {
         return cell
     }
 }
-
+//MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,7 +118,7 @@ extension SearchViewController: UITableViewDelegate {
                     guard  let controller =  self?.storyboard?.instantiateViewController(withIdentifier: SearchViewController.searchStoryboardId) as? DetailViewController else { return }
                     let detailModel = DetailViewModel(urlImage: movies?.poster_path ?? "",
                                                       title: titleName,
-                                                      videoView:  videoElement, 
+                                                      videoView:  videoElement,
                                                       titleOverview: titleOverview, rating: movies?.vote_average ?? 0)
                     controller.detailView.configureDetail(model: detailModel)
                     self?.present(controller, animated: true)
@@ -134,10 +131,9 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 //MARK: - UISearchResultsUpdating
-
 extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate {
     
-    func updateSearchResults(for searchController: UISearchController) {
+    internal func updateSearchResults(for searchController: UISearchController) {
         
         let searchBar = searchController.searchBar
         guard  let query = searchBar.text,
@@ -160,7 +156,7 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultViewControl
         }
     }
     
-    func searchResuldidTapToCell(viewModel: DetailViewModel) {
+    internal func searchResuldidTapToCell(viewModel: DetailViewModel) {
         
         DispatchQueue.main.async { [weak self] in
             guard let controller =  self?.storyboard?.instantiateViewController(withIdentifier: SearchViewController.searchStoryboardId) as? DetailViewController else { return }

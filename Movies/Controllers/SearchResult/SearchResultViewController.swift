@@ -8,16 +8,14 @@
 import UIKit
 
 class SearchResultViewController: UIViewController {
-    
-    weak var delegate: SearchResultViewControllerDelegate?
-    
+//  MARK: - @IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-    
+//  MARK: - var/let
+    weak var delegate: SearchResultViewControllerDelegate?
     var movies: [Movie] = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpCollection()
     }
     
@@ -28,7 +26,7 @@ class SearchResultViewController: UIViewController {
                                 forCellWithReuseIdentifier: CollectionViewCell.identifier)
     }
 }
-
+//MARK: - UICollectionViewDelegate
 extension SearchResultViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,17 +42,19 @@ extension SearchResultViewController: UICollectionViewDelegate {
         NetworkRequest.shared.getMovie(query: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
-                self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(urlImage: title.poster_path ?? "",
-                                                                                   title: titleName,
-                                                                                   videoView: videoElement,
-                                                                                   titleOverview: titleOverview, rating: title.vote_average))
+                self?.delegate?.searchResuldidTapToCell(viewModel: DetailViewModel(
+                    urlImage: title.poster_path ?? "",
+                    title: titleName,
+                    videoView: videoElement,
+                    titleOverview: titleOverview,
+                    rating: title.vote_average))
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
 }
-
+//MARK: - UICollectionViewDataSource
 extension SearchResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

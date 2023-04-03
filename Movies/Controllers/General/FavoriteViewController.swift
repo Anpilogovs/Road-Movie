@@ -1,16 +1,14 @@
-
 import UIKit
 import RealmSwift
 
 class FavoriteViewController: UIViewController {
-    
+//    MARK: - @IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    
+//    MARK: - var/let 
     var movies: [MovieTitleRealm] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpTableView()
         fetchLocalStorage()
         NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"),
@@ -40,14 +38,13 @@ class FavoriteViewController: UIViewController {
         }
     }
 }
-
+//MARK: - UITableViewDelegate
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
 }
-
-
+// MARK: - UITableViewDataSource
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movies.count

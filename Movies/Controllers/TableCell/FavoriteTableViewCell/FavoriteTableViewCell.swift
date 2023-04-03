@@ -1,10 +1,3 @@
-//
-//  FavoriteTableViewCell.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 04.12.2022.
-//
-
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
@@ -19,7 +12,6 @@ class FavoriteTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         customFavoriteView.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
     }
     
