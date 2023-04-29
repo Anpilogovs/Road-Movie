@@ -87,6 +87,7 @@ fastlane/test_output
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
+*.a
 Movies/Pods/Realm/core/realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator/librealm-monorepo.a
 iOSInjectionProject/
 
