@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,30 +16,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qH5-7i-RjX">
-                    <rect key="frame" x="0.0" y="44" width="295" height="500"/>
+                    <rect key="frame" x="0.0" y="48" width="295" height="500"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="500" id="ANZ-Mq-n2W"/>
+                        <constraint firstAttribute="height" constant="500" id="ANZ-Mq-n2W">
+                            <variation key="widthClass=regular" constant="120"/>
+                        </constraint>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73Q-3C-4ag">
-                    <rect key="frame" x="30" y="501" width="48.5" height="31"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="Info"/>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qH5-7i-RjX" secondAttribute="trailing" id="HUq-KB-JWQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="73Q-3C-4ag" secondAttribute="bottom" constant="11" id="TJ7-Tq-Jwd"/>
                 <constraint firstItem="qH5-7i-RjX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UXP-Xz-eLb"/>
-                <constraint firstItem="73Q-3C-4ag" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="a7O-nq-RLo"/>
                 <constraint firstItem="qH5-7i-RjX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mKH-VZ-vMc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="infoButton" destination="73Q-3C-4ag" id="wwZ-46-IgF"/>
                 <outlet property="movieImageView" destination="qH5-7i-RjX" id="96O-y3-tAB"/>
             </connections>
             <point key="canvasLocation" x="51.449275362318843" y="-209.93303571428569"/>

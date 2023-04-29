@@ -1,16 +1,9 @@
-//
-//  CollectionTableViewCell.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 26.10.2022.
-//
-
 import UIKit
 
 class CollectionTableViewCell: UITableViewCell {
-//    MARK: - @IBOutlet
+    //    MARK: - @IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-//    MARK: - var/let
+    //    MARK: - var/let
     weak var detailDelegate: CollectionTableViewCellDetailDelegate?
     static let identifier = "CollectionTableViewCell"
     private var movies: [Movie] = []
@@ -26,14 +19,14 @@ class CollectionTableViewCell: UITableViewCell {
         collectionView.delegate = self
     }
     
-     func configure(movie: [Movie]) {
+    func configure(movie: [Movie]) {
         self.movies = movie
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
     }
     
-   private func donwloadMovie(indexPath: IndexPath)  {
+    private func donwloadMovie(indexPath: IndexPath)  {
         RealmManager.shared.donwloadTitlewitch(model: movies[indexPath.row]) { result in
             switch result {
             case .success():
@@ -61,16 +54,14 @@ extension CollectionTableViewCell: UICollectionViewDataSource  {
         return cell
     }
 }
-
 //MARK: - UICollectionViewDelegate
 extension CollectionTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-
+        
         let title = movies[indexPath.row]
         guard let titleName = title.original_title ?? title.original_name else { return }
-        print(title)
         NetworkRequest.shared.getMovie(query: titleName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
@@ -86,7 +77,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate {
                                                   title: titleName,
                                                   videoView: videoElement,
                                                   titleOverview: "Overview: \(titleOverview)",
-                                                  rating: title?.vote_average ?? 10)
+                                                  rating: title?.vote_average ?? 0)
                 self?.detailDelegate?.collectionTableViewCellDidSelectItem(selfStrong,
                                                                            viewModel: detailModel)
             case .failure(let error):

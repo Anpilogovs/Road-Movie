@@ -1,11 +1,11 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-//  MARK: - IBOutler
+    //  MARK: - IBOutler
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainerView: UIView!
     
-//  MARK: - var/let
+    //  MARK: - var/let
     private lazy var searchController = UISearchController()
     static let searchStoryboardId = "DetailViewController"
     public var movies: [Movie] = []
@@ -77,13 +77,9 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 200
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -93,7 +89,7 @@ extension SearchViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else { return UITableViewCell() }
         
         let title =  movies[indexPath.row]
-        let model = TitleViewModel(nameMovie: (title.original_title ?? title.original_name) ?? "", urlImage: title.poster_path ?? "", description: title.overview ?? "", rating: "\(title.vote_average)")
+        let model = TitleViewModel(nameMovie: (title.original_title ?? title.original_name) ?? "", urlImage: title.poster_path ?? "", description: title.overview ?? "", rating: title.vote_average)
         cell.configure(model: model)
         
         return cell

@@ -41,7 +41,8 @@ class FavoriteViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        let height: CGFloat = 200
+        return height
     }
 }
 // MARK: - UITableViewDataSource
@@ -57,7 +58,7 @@ extension FavoriteViewController: UITableViewDataSource {
         let model = TitleViewModel(nameMovie: title.original_title,
                                    urlImage: title.poster_path,
                                    description: title.overview,
-                                   rating: "\(title.vote_average)")
+                                   rating: title.vote_average)
         cell.configureFavoriteCell(model: model)
         return cell
     }

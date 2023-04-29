@@ -1,10 +1,3 @@
-//
-//  SearchResultViewController.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 11.11.2022.
-//
-
 import UIKit
 
 class SearchResultViewController: UIViewController {

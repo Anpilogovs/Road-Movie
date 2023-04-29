@@ -9,7 +9,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         detailView.frame = customView.frame
         customView.addSubview(detailView)
-       
+        
         detailView.backButton.addTarget(self, action: #selector(backOnScreenButton), for: .touchUpInside)
     }
     

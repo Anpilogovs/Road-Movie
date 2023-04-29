@@ -13,7 +13,7 @@ class NetworkRequest {
     
     private init() {}
     
-//MARK: - getPopupalMovies
+    //MARK: - getPopupalMovies
     func getPopupalMovies(complection: @escaping (Result<[Movie], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.url)/3/movie/popular?api_key=\(Constants.apiKey)") else {return}
@@ -33,7 +33,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - getUpComingMovies
+    //MARK: - getUpComingMovies
     func getUpComingMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/movie/upcoming?api_key=\(Constants.apiKey)&language=en-US&page=1") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -49,7 +49,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - getTopRatedMovies
+    //MARK: - getTopRatedMovies
     func getTopRatedMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/movie/top_rated?api_key=\(Constants.apiKey)&language=en-US&page=1") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -66,7 +66,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - getMovies
+    //MARK: - getMovies
     func getMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/movie?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -84,7 +84,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - getTvShow
+    //MARK: - getTvShow
     func getTvShow(completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.url)/3/discover/tv?api_key=\(Constants.apiKey)&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0") else { return }
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data,_, error in
@@ -102,7 +102,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - searchMovies
+    //MARK: - searchMovies
     func searchMovies(query: String, completion: @escaping (Result<[Movie], Error>) -> Void) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
@@ -121,7 +121,7 @@ class NetworkRequest {
         }
         task.resume()
     }
-//MARK: - getMovie
+    //MARK: - getMovie
     func getMovie(query: String, completion: @escaping (Result<VideoElement, Error>) -> Void ) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }

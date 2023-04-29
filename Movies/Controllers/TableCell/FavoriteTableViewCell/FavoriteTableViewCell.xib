@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,25 +19,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-Gw-aRI" userLabel="customFavovireView">
-                        <rect key="frame" x="10" y="5" width="340" height="216"/>
+                        <rect key="frame" x="10" y="10" width="340" height="89.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HSP-9P-JWi">
-                                <rect key="frame" x="149" y="10" width="181" height="196"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="HSP-9P-JWi">
+                                <rect key="frame" x="77.5" y="10" width="252.5" height="69.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAI-iA-pPS">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="68"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teE-ea-xhF">
-                                        <rect key="frame" x="0.0" y="70" width="42" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="42" height="20"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDN-Kd-bFd">
-                                        <rect key="frame" x="0.0" y="130.5" width="42" height="65.5"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="42" height="20"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wwO-oe-j30">
-                                <rect key="frame" x="17" y="10" width="122" height="206"/>
+                                <rect key="frame" x="17" y="10" width="50.5" height="85.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wwO-oe-j30" secondAttribute="height" multiplier="61:103" id="tPY-qD-uFh"/>
                                 </constraints>
@@ -64,9 +65,9 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XAn-Gw-aRI" secondAttribute="bottom" constant="10" id="I7Y-4F-LE9"/>
                     <constraint firstAttribute="trailing" secondItem="XAn-Gw-aRI" secondAttribute="trailing" constant="10" id="ODg-8w-8el"/>
-                    <constraint firstItem="XAn-Gw-aRI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="U68-zu-WnH"/>
-                    <constraint firstAttribute="bottom" secondItem="XAn-Gw-aRI" secondAttribute="bottom" constant="5" id="ZuK-JQ-Ibb"/>
+                    <constraint firstItem="XAn-Gw-aRI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="U68-zu-WnH"/>
                     <constraint firstItem="XAn-Gw-aRI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jvr-JN-l58"/>
                 </constraints>
             </tableViewCellContentView>

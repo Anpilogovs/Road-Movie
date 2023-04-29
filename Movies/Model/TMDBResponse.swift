@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 26.10.2022.
-//
-
 import Foundation
 
 

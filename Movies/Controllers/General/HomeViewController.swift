@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     private let sectionName: [String] = ["Popular", "UpComing", "Top Rated"]
     private let mainTitleView = TitleView.intanceFromNib()
     private var movie: Movie?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHeaderImageView()
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         mainTitleView.movieImageView.addShadow()
     }
-
+    
     private func setUpTable() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
                 self?.mainTitleView.configure(model: TitleViewModel(nameMovie: "",
                                                                     urlImage: self?.movie?.poster_path ?? "",
                                                                     description: "",
-                                                                    rating: ""))
+                                                                    rating: 0))
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -63,11 +63,11 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as? CollectionTableViewCell else { return UITableViewCell() }
-    
+        
         cell.detailDelegate = self
         
         switch indexPath.section  {
-
+            
         case CategoryMovie.Popular.rawValue:
             NetworkRequest.shared.getPopupalMovies { result in
                 switch result {
@@ -78,7 +78,6 @@ extension HomeViewController: UITableViewDataSource {
                     print(error.localizedDescription)
                 }
             }
-            
         case CategoryMovie.UpComing.rawValue:
             NetworkRequest.shared.getUpComingMovies { result in
                 switch result {
@@ -114,7 +113,7 @@ extension HomeViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionName.count
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
         headerView.backgroundColor = .white

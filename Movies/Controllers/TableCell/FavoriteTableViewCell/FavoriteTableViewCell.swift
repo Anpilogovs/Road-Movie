@@ -9,7 +9,7 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var customFavoriteView: UIView!
     
     static let identifier = "FavoriteTableViewCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         customFavoriteView.addRoundedCornersAndBorder(cornerRadius: 10, borderWidth: 1, borderColor: .black)
@@ -26,7 +26,7 @@ class FavoriteTableViewCell: UITableViewCell {
         titleMovieLabel.text = "Name: \(model.nameMovie)"
         overviewLabel.text = "Overview:\n\(model.description)"
         ratingLabel.text = "Rating: \(model.rating)"
-        ratingLabel.textColor = color(for: Double(model.rating) ?? 0)
+        ratingLabel.textColor = color(for: Double(model.rating))
     }
     
     private func color(for rating: Double) -> UIColor {

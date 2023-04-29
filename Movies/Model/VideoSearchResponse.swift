@@ -1,10 +1,3 @@
-//
-//  VideoSearchResults.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 03.11.2022.
-//
-
 import Foundation
 
 struct VideoSearchResponse: Codable {

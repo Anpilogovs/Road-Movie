@@ -28,20 +28,3 @@ extension UIImageView {
         layer.addSublayer(shadowLayer)
     }
 }
-
-//extension UIImageView {
-//    func setImage(with url: String, blurRadius: CGFloat? = nil) {
-//        guard let url = URL(string: url) else { return }
-//        self.sd_setImage(with: url) { [weak self] _,_,_,_  in
-//            if let strongSelf = self, let image = self?.image {
-//                strongSelf.image = image
-//                if let blurRadius = blurRadius, blurRadius > 0 {
-//                    let overlayView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterialLight))
-//                    overlayView.frame = strongSelf.bounds
-//                    overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//                    strongSelf.addSubview(overlayView)
-//                }
-//            }
-//        }
-//    }
-//}

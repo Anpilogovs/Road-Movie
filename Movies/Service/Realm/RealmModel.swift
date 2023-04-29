@@ -1,10 +1,3 @@
-//
-//  RealmModel.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 15.03.2023.
-//
-
 import RealmSwift
 
 class MovieTitleRealm: Object {
@@ -16,7 +9,7 @@ class MovieTitleRealm: Object {
     @Persisted var media_type: String = ""
     @Persisted var poster_path: String = ""
     @Persisted var vote_count: Int = 0
-    @Persisted var vote_average: Double
+    @Persisted var vote_average: Double = 0
     @Persisted var release_date: String = ""
     
     override static func primaryKey() -> String? {

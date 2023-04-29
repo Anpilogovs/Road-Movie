@@ -1,7 +1,6 @@
 import UIKit
 import SDWebImage
 
-
 final class TitleView: UIView {
     
     @IBOutlet weak var movieImageView: UIImageView!

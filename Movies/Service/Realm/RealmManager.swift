@@ -1,10 +1,3 @@
-//
-//  CoreDataManager.swift
-//  Movies
-//
-//  Created by Сергей Анпилогов on 03.12.2022.
-//
-
 import UIKit
 import RealmSwift
 
@@ -30,6 +23,7 @@ class RealmManager {
         item.media_type = model.media_type ?? ""
         item.poster_path = model.poster_path ?? ""
         item.vote_count = model.vote_count
+        item.vote_average = model.vote_average 
         item.release_date = model.release_data ?? ""
         
         do {
